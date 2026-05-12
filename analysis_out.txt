@@ -1,0 +1,189 @@
+﻿======================================================================
+DATASET 1: taylor_eras_multimodal_dataset.csv
+======================================================================
+Shape: (90, 16)
+
+Columns (16):
+  ['track_name', 'album', 'era', 'lyrics', 'danceability', 'energy', 'loudness', 'speechiness', 'acousticness', 'instrumentalness', 'liveness', 'valence', 'tempo', 'duration_ms', 'key', 'mode']
+
+Dtypes:
+track_name              str
+album                   str
+era                     str
+lyrics                  str
+danceability        float64
+energy              float64
+loudness            float64
+speechiness         float64
+acousticness        float64
+instrumentalness    float64
+liveness            float64
+valence             float64
+tempo               float64
+duration_ms           int64
+key                   int64
+mode                  int64
+
+Null counts:
+track_name          0
+album               0
+era                 0
+lyrics              0
+danceability        0
+energy              0
+loudness            0
+speechiness         0
+acousticness        0
+instrumentalness    0
+liveness            0
+valence             0
+tempo               0
+duration_ms         0
+key                 0
+mode                0
+
+Null % per column:
+track_name          0.0
+album               0.0
+era                 0.0
+lyrics              0.0
+danceability        0.0
+energy              0.0
+loudness            0.0
+speechiness         0.0
+acousticness        0.0
+instrumentalness    0.0
+liveness            0.0
+valence             0.0
+tempo               0.0
+duration_ms         0.0
+key                 0.0
+mode                0.0
+
+[TARGET] Column 'album' distribution:
+album
+Lover            18
+folklore         16
+reputation       15
+evermore         15
+1989 (Deluxe)    13
+Midnights        13
+
+[TARGET] Column 'era' distribution:
+era
+Lover         18
+Folklore      16
+Reputation    15
+Evermore      15
+1989          13
+Midnights     13
+
+First 3 rows:
+            track_name          album   era                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        lyrics  danceability  energy  loudness  speechiness  acousticness  instrumentalness  liveness  valence    tempo  duration_ms  key  mode
+0  Welcome To New York  1989 (Deluxe)  1989                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Walkin' through a crowd, the village is aglow\nKaleidoscope of loud heartbeats under coats\nEverybody here wanted somethin' more\nSearchin' for a sound we hadn't heard before\nAnd it said\nWelcome to New York, it's been waitin' for you\nWelcome to New York, welcome to New York\nWelcome to New York, it's been waitin' for you\nWelcome to New York, welcome to New York\nIt's a new soundtrack, I could dance to this beat, beat forevermore\nThe lights are so bright, but they never blind me, me\nWelcome to New York, it's been waitin' for you\nWelcome to New York, welcome to New York\nWhen we first dropped our bags on apartment floors\nTook our broken hearts, put them in a drawer\nEverybody here was someone else before\nAnd you can want who you want\nBoys and boys and girls and girls\nWelcome to New York, it's been waitin' for you\nWelcome to New York, welcome to New York\nWelcome to New York, it's been waitin' for you\nWelcome to New York, welcome to New York\nIt's a new soundtrack, I could dance to this beat, beat forevermore\nThe lights are so bright, but they never blind me, me\nWelcome to New York (New York), it's been waitin' for you\nWelcome to New York, welcome to New York\nLike any great love, it keeps you guessing\nLike any real love, it's ever-changing\nLike any true love, it drives you crazy\nBut you know you wouldn't change anything, anything, anything\nWelcome to New York, it's been waitin' for you\nWelcome to New York, welcome to New York\nWelcome to New York, it's been waitin' for you\nWelcome to New York, welcome to New York\nIt's a new soundtrack, I could dance to this beat\nThe lights are so bright, but they never blind me\nWelcome to New York (New soundtrack), it's been waitin' for you\nWelcome to New York, the lights are so bright, but they never blind me\nWelcome to New York, so bright, they never blind me, yeah\nWelcome to New York, welcome to New York         0.793   0.634    -4.807       0.0324       0.03800          0.000002     0.304    0.615  117.024       212600    7     1
+1          Blank Space  1989 (Deluxe)  1989  Nice to meet you, where you been?\nI could show you incredible things\nMagic, madness, heaven, sin\nSaw you there and I thought\n"Oh, my God, look at that face\nYou look like my next mistake\nLove's a game, wanna play?" Ayy\nNew money, suit and tie\nI can read you like a magazine\nAin't it funny? Rumors fly\nAnd I know you heard about me\nSo, hey, let's be friends\nI'm dying to see how this one ends\nGrab your passport and my hand\nI can make the bad guys good for a weekend\nSo it's gonna be forever\nOr it's gonna go down in flames?\nYou can tell me when it's over, mm\nIf the high was worth the pain\nGot a long list of ex-lovers\nThey'll tell you I'm insane\n'Cause you know I love the players\nAnd you love the game\n'Cause we're young and we're reckless\nWe'll take this way too far\nIt'll leave you breathless, mm\nOr with a nasty scar\nGot a long list of ex-lovers\nThey'll tell you I'm insane\nBut I've got a blank space, baby\nAnd I'll write your name\nCherry lips, crystal skies\nI could show you incredible things\nStolen kisses, pretty lies\nYou're the king, baby, I'm your queen\nFind out what you want\nBe that girl for a month\nWait, the worst is yet to come, oh, no\nScreaming, crying, perfect storms\nI can make all the tables turn\nRose garden filled with thorns\nKeep you second guessing, like\n"Oh, my God, who is she?"\nI get drunk on jealousy\nBut you'll come back each time you leave\n'Cause, darling, I'm a nightmare dressed like a daydream\nSo it's gonna be forever\nOr it's gonna go down in flames?\nYou can tell me when it's over, mm\nIf the high was worth the pain\nGot a long list of ex-lovers\nThey'll tell you I'm insane\n'Cause you know I love the players\nAnd you love the game\n'Cause we're young and we're reckless (Oh)\nWe'll take this way too far\nIt'll leave you breathless (Oh-oh), mm\nOr with a nasty scar\nGot a long list of ex-lovers\nThey'll tell you I'm insane (Insane)\nBut I've got a blank space, baby\nAnd I'll write your name\nBoys only want love if it's torture\nDon't say I didn't, say I didn't warn ya\nBoys only want love if it's torture\nDon't say I didn't, say I didn't warn ya\nSo it's gonna be forever\nOr it's gonna go down in flames?\nYou can tell me when it's over (Over), mm\nIf the high was worth the pain\nGot a long list of ex-lovers\nThey'll tell you I'm insane (I'm insane)\n'Cause you know I love the players\nAnd you love the game (And you love the game)\n'Cause we're young and we're reckless (Yeah)\nWe'll take this way too far (Ooh)\nIt'll leave you breathless, mm\nOr with a nasty scar (With a nasty scar)\nGot a long list of ex-lovers\nThey'll tell you I'm insane\nBut I've got a blank space, baby\nAnd I'll write your name         0.753   0.678    -5.421       0.0644       0.08500          0.000002     0.130    0.583   96.006       231827    5     1
+2                Style  1989 (Deluxe)  1989                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              Midnight\nYou come and pick me up, no headlights\nLong drive\nCould end in burning flames or paradise\nFade into view, oh\nIt's been a while since I have even heard from you\n(Heard from you)\nAnd I should just tell you to leave, 'cause I\nKnow exactly where it leads, but I\nWatch us go 'round and 'round each time\nYou got that James Dean daydream look in your eye\nAnd I got that red lip classic thing that you like\nAnd when we go crashing down, we come back every time\n'Cause we never go out of style, we never go out of style\nYou got that long hair, slicked back, white T-shirt\nAnd I got that good-girl faith and a tight little skirt\nAnd when we go crashing down, we come back every time\n'Cause we never go out of style, we never go out of style\nSo it goes\nHe can't keep his wild eyes on the road, mm\nTakes me home\nThe lights are off, he's taking off his coat, mm, yeah\nI say, "I heard, oh\nThat you've been out and about with some other girl"\nSome other girl\nHe says, "What you heard is true, but I\nCan't stop thinking 'bout you and I"\nI said, "I've been there too, a few times"\nYou got that James Dean daydream look in your eye\nAnd I got that red lip classic thing that you like\nAnd when we go crashing down, we come back every time\n'Cause we never go out of style, we never go out of style\nYou got that long hair, slicked back, white T-shirt\nAnd I got that good-girl faith and a tight little skirt (A tight little skirt)\nAnd when we go crashing down, we come back every time\n'Cause we never go out of style (We never go, we never go), we never go out of style\nTake me home (Ah)\nJust take me home (Ah)\nYeah, just take me home (Ah)\nOh-oh, woah-oh, oh (Out of style)\nOh, you got that James Dean daydream look in your eye\nAnd I got that red lip classic thing that you like\nAnd when we go crashing down (And when we go), we come back every time\n'Cause we never go out of style, we never go out of style         0.598   0.786    -5.572       0.0383       0.00253          0.001600     0.117    0.456   95.019       231000    2     1
+
+Numeric describe:
+       danceability     energy   loudness  speechiness  acousticness  instrumentalness   liveness    valence       tempo    duration_ms        key       mode
+count     90.000000  90.000000  90.000000    90.000000     90.000000         90.000000  90.000000  90.000000   90.000000      90.000000  90.000000  90.000000
+mean       0.614767   0.523867  -8.812956     0.077274      0.421046          0.009680   0.132871   0.382174  120.374478  223274.600000   4.422222   0.877778
+std        0.128539   0.183833   2.548809     0.075415      0.354713          0.057029   0.073878   0.191523   31.096456   33200.207153   3.628779   0.329377
+min        0.292000   0.151000 -15.480000     0.025300      0.001030          0.000000   0.039100   0.037400   68.534000  150440.000000   0.000000   0.000000
+25%        0.552250   0.377500 -10.478000     0.037525      0.068475          0.000000   0.093675   0.234500   95.025500  200914.250000   0.000000   1.000000
+50%        0.619500   0.536000  -8.753500     0.052050      0.357500          0.000017   0.114000   0.385000  117.522000  218735.500000   4.000000   1.000000
+75%        0.696000   0.676250  -6.694250     0.074425      0.780250          0.000169   0.133750   0.506000  145.434000  239233.250000   7.000000   1.000000
+max        0.897000   0.898000  -4.105000     0.519000      0.971000          0.488000   0.483000   0.943000  207.476000  315147.000000  11.000000   1.000000
+
+Text-like columns: ['lyrics']
+Audio-like columns: ['danceability', 'energy', 'loudness', 'speechiness', 'acousticness', 'valence', 'tempo', 'duration_ms', 'key', 'mode']
+
+======================================================================
+DATASET 2: taylor_lyric_df_processed.csv
+======================================================================
+Shape: (338, 4)
+
+Columns (4):
+  ['Unnamed: 0', 'album', 'song_title', 'lyric']
+
+Dtypes:
+Unnamed: 0    int64
+album           str
+song_title      str
+lyric           str
+
+Null counts:
+Unnamed: 0    0
+album         0
+song_title    0
+lyric         0
+
+Null % per column:
+Unnamed: 0    0.0
+album         0.0
+song_title    0.0
+lyric         0.0
+
+[TARGET] Column 'album' distribution:
+album
+Unreleased Songs                                                              88
+Taylor Swift  by Concert Genius                                               32
+Red                                                                           20
+Lover                                                                         18
+Speak Now (Deluxe)                                                            18
+1989 (Deluxe)                                                                 17
+Vol. 2 Demo CD                                                                16
+folklore                                                                      16
+reputation                                                                    16
+Fearless                                                                      14
+2004-2005 Demo CD                                                             12
+Taylor Swift                                                                  12
+Live from Paris                                                                9
+Taylor Swift - folklore (Traduτπo em PortuguΩs) by Genius Brasil Traduτ⌡es     9
+Fearless (Platinum Edition)                                                    5
+Speak Now: World Tour Live (Deluxe)                                            5
+The Taylor Swift Holiday Collection - EP                                       5
+2004 Demo CD                                                                   3
+Live from SoHo - EP                                                            3
+Speak Now : World Tour Live (Brazilian Edition)                                3
+Taylor Songs 2003 Demo                                                         3
+Taylor Swift Interviews by Genius Users                                        3
+2003 Demo CD                                                                   2
+2004 Demo CD (Three Songs)                                                     1
+Beautiful Eyes - EP                                                            1
+Love Story [UK CD Single]                                                      1
+Spotify Singles                                                                1
+Stripped: Raw & Real                                                           1
+Taylor Swift (Best Buy Exclusive)                                              1
+Taylor Swift (Deluxe)                                                          1
+Teardrops On My Guitar - EP                                                    1
+folklore (Deluxe)                                                              1
+
+First 3 rows:
+   Unnamed: 0          album                   song_title                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 lyric
+0           0  1989 (Deluxe)          1989 [Liner Notes]   Prologue"These songs were once about my life. They are now about yours." I was born in Reading, Pennsylvania on December 13, 1989. In the world we live in, much is said about when we are born and when we die. Our birthday is celebrated every year to commemorate the very instant we came into the world. And a funeral is held to mark the day we leave it. But lately I've been wondering... what can be said of all the moments in between our birth and our death? The moments when we are reborn... The debate over whether people change is an interesting one for me to observe because it seems like all I ever do is change. All I ever do is learn from my mistakes so I don't make the same ones again. Then I make new ones. I know people can change because it happens to me little by little every day. Every day I wake up as someone slightly new. Isn't it wild and intriguing and beautiful to think that every day we are new? For the last few years, I've woken up every day not wanting, but needing to write a new style of music. I needed to change the way I told my stories and the way they sounded. I listened to a lot of music from the decade in which I was born and I listened to my intuition that it was a good thing to follow this gut feeling. I was also writing a different storyline than I'd ever told you before. I wrote about moving to the loudest and brightest city in the world, the city I had always been overwhelmed by... until now. I think you have to know who you are and what you want in order to take on New York and all its blaring truth. I wrote about the thrill I got when I finally learned that love, to some extent, is just a game of cat and mouse. I wrote about looking back on a lost love and understanding that nothing good comes without loss and hardship and constant struggle. There is no "riding off into the sunset," like I used to imagine. We are never out of the woods, because we are always going to be fighting for something. I wrote about love that comes back to you just when you thought it was lost forever, and how some feelings never go out of style. I wrote about an important lesson I learned recently... that people can say whatever they want about me, but they can't make me lose my mind. I've learned how to shake things off. I've told you my stories for years now. Some have been about coming of age. Some have been about coming undone. This is a story about coming into your own, and as a result... coming alive. I hope you know that you've given me the courage to change. I hope you know that who you are is who you choose to be, and that whispers behind your back don't define you. You are the only person who gets to decide what you will be remembered for. From the girl who said she would never cut her hair or move to New York or find happiness in a world where she is not in love... Love, Taylor 1. Welcome To New York Hidden Message: We begin our story in New York 2. Blank Space Hidden Message: There once was a girl known by everyone and no one 3. Style Hidden Message: Her heart belonged to someone who couldnÆt stay 4. Out of the Woods Hidden Message: They loved each other recklessly 5. All You Had to Do Was Stay Hidden Message: They paid the price 6. Shake It Off Hidden Message: She danced to forget him 7. I Wish You Would Hidden Message: He drove past her street each night 8. Bad Blood Hidden Message: She made friends and enemies 9. Wildest Dreams Hidden Message: He only saw her in his dreams 10. How You Get the Girl Hidden Message: Then one day he came back 11. This Love Hidden Message: Timing is a funny thing 12. I Know Places Hidden Message: And everyone was watching 13. Clean Hidden Message: She lost him but she found herself and somehow that was everything DELUXE 14. Wonderland 15. You Are In Love 16. New Romantics 17. I Know Places" (Piano/Vocal) (Voice Memo) 18. I Wish You Would (Track/Vocal) (Voice Memo) 19. Blank Space (Guitar/Vocal) (Voice Memo)
+1           1  1989 (Deluxe)  All You Had to Do Was Stay                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 [Verse 1] People like you always want back The love they gave away And people like me wanna believe you When you say you've changed The more I think about it now The less I know All I know is that you drove us Off the road [Chorus] (Stay!) Hey All you had to do was stay Had me in the palm of your hand Then, why'd you have to go and lock me out when I let you in? (Stay!) Hey Now, you say you want it back Now that it's just too late Well, could've been easy All you had to do was (Stay!) All you had to do was (Stay!) All you had to do was (Stay!) All you had to do was (Stay!) All you had to do was stay [Verse 2] Here you are now, calling me up But I don't know what to say I've been picking up the pieces Of the mess you made People like you always want back The love they pushed aside But people like me are gone forever When you say goodbye [Chorus] (Stay!) Hey All you had to do was stay Had me in the palm of your hand Then, why'd you have to go and lock me out when I let you in? (Stay!) Hey Now, you say you want it back Now that it's just too late Well, could've been easy All you had to do was (Stay!) All you had to do was (Stay!) All you had to do was (stay!) All you had to do was (Stay! stay! stay! stay! stay!) [Bridge] Let me remind you This was what you wanted (Oh, oh, oh-oh-oh) You ended it You were all I wanted (Oh, oh, oh-oh-oh) But not like this Not like this Not like this Oh, all you had to do was [Chorus] (Stay!) Hey All you had to do was stay Had me in the palm of your hand Then, why'd you want to go and lock me out when I let you in? (Stay!) Hey Now, you say you want it back Now that it's just too late Well, could've been easy All you had to do was (Stay!) Hey All you had to do was stay Had me in the palm of your hand Then, why'd you have to go and lock me out when I let you in? (Stay!) Hey Now, you say you want it back Now that it's just too late (All you had to do was stay) Well, could've been easy All you had to do was (Stay!) All you had to do was (Stay!) (Oh) All you had to do was (Stay!) All you had to do was (Stay!) (Ooh) All you had to do was (Stay!)
+2           2  1989 (Deluxe)                   Bad Blood                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             [Chorus] ÆCause baby, now we've got bad blood You know it used to be mad love So take a look what you've done ÆCause baby, now we've got bad blood, hey! Now we've got problems And I don't think we can solve 'em You made a really deep cut And baby, now we've got bad blood, hey! [Verse 1] Did you have to do this? I was thinking that you could be trusted Did you have to ruin what was shiny? Now it's all rusted Did you have to hit me where I'm weak? Baby, I couldn't breathe And rub it in so deep Salt in the wound like you're laughing right at me [Pre-Chorus] Oh, it's so sad to Think about the good times You and I [Chorus] ÆCause baby, now we've got bad blood You know it used to be mad love So take a look what you've done ÆCause baby, now we've got bad blood, hey! Now we've got problems And I don't think we can solve 'em You made a really deep cut And baby, now we've got bad blood, hey! [Verse 2] Did you think we'd be fine? Still got scars in my back from your knives So don't think it's in the past These kinds of wounds they last and they last Now, did you think it all through? All these things will catch up to you And time can heal, but this won't So if you're coming my way Just don't [Pre-Chorus] Oh, it's so sad to Think about the good times You and I [Chorus] ÆCause baby, now we've got bad blood You know it used to be mad love So take a look what you've done ÆCause baby, now we've got bad blood, hey! Now we've got problems And I don't think we can solve 'em You made a really deep cut And baby, now we've got bad blood, hey! [Bridge] Band-aids don't fix bullet holes You say sorry just for show If you live like that, you live with ghosts Band-aids don't fix bullet holes You say sorry just for show If you live like that, you live with ghosts If you love like that, blood runs cold! [Chorus] ÆCause baby, now we've got bad blood You know it used to be mad love So take a look what you've done ÆCause baby, now we've got bad blood, hey! Now we've got problems And I don't think we can solve 'em (Think we can solve 'em) You made a really deep cut And baby, now we've got bad blood, hey! [Chorus] ÆCause baby, now we've got bad blood You know it used to be mad love So take a look what you've done (Look what you've done) ÆCause baby, now we've got bad blood, hey! Now we've got problems And I don't think we can solve 'em You made a really deep cut And baby, now we've got bad blood, hey!
+
+Numeric describe:
+       Unnamed: 0
+count  338.000000
+mean   168.500000
+std     97.716426
+min      0.000000
+25%     84.250000
+50%    168.500000
+75%    252.750000
+max    337.000000
+
+Text-like columns: ['lyric']
+Audio-like columns: []
+
+======================================================================
+OVERLAP / SHARED STRUCTURE
+======================================================================
+Common columns: ['album']
+Only in df1: ['acousticness', 'danceability', 'duration_ms', 'energy', 'era', 'instrumentalness', 'key', 'liveness', 'loudness', 'lyrics', 'mode', 'speechiness', 'tempo', 'track_name', 'valence']
+Only in df2: ['Unnamed: 0', 'lyric', 'song_title']
+
+Done.

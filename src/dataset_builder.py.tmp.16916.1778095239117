@@ -1,0 +1,197 @@
+import os
+import pandas as pd
+import requests
+from dotenv import load_dotenv
+from io import StringIO
+
+# Import our modular collectors
+from spotify_collector import SpotifyCollector
+from genius_collector import GeniusCollector
+
+def fetch_audio_features_fallback():
+    """
+    Downloads Taylor Swift's Spotify audio features from a reliable GitHub repository.
+    Used when the current Spotify API App is restricted from the /audio-features endpoint.
+    """
+    raw_url = "https://raw.githubusercontent.com/adashofdata/taylor_swift_data/main/Taylor_Swift_Spotify/taylor_swift_spotify_data.csv"
+    print(f"=> [FALLBACK] Fetching static audio features from GitHub...")
+    try:
+        response = requests.get(raw_url)
+        response.raise_for_status()
+        df_static = pd.read_csv(StringIO(response.text))
+        
+        # Standardize column names to match our requirements
+        df_static = df_static.rename(columns={
+            "Song Name": "track_name",
+            "Danceability": "danceability",
+            "Energy": "energy",
+            "Key": "key",
+            "Loudness": "loudness",
+            "Mode": "mode",
+            "Tempo": "tempo",
+            "Valence": "valence",
+            "Acousticness": "acousticness",
+            "Speechiness": "speechiness",
+            "Instrumentalness": "instrumentalness",
+            "Liveness": "liveness",
+            "Duration_ms": "duration_ms"
+        })
+
+        # Keep only the columns we need for merging
+        cols_to_keep = [
+            "track_name", "danceability", "energy", "loudness",
+            "tempo", "valence", "acousticness", "speechiness",
+            "instrumentalness", "liveness", "duration_ms", "key", "mode"
+        ]
+        return df_static[cols_to_keep]
+    except Exception as e:
+        print(f"  [ERROR] Fallback download failed: {e}")
+        return None
+
+def build_multimodal_dataset():
+    """
+    Main orchestrator to collect tracks & audio features from Spotify, 
+    append lyrics from Genius, and output a reproducible dataset.
+    """
+    print("==================================================")
+    print("  Taylor Swift Eras Multimodal Dataset Builder")
+    print("==================================================\n")
+    
+    # 1. Load Configuration
+    load_dotenv()
+    
+    spotify_client_id = os.getenv("SPOTIFY_CLIENT_ID")
+    spotify_client_secret = os.getenv("SPOTIFY_CLIENT_SECRET")
+    genius_access_token = os.getenv("GENIUS_ACCESS_TOKEN")
+    
+    if not spotify_client_id or not spotify_client_secret:
+        print("[ERROR] SPOTIFY_CLIENT_ID and SPOTIFY_CLIENT_SECRET must exist in .env file.")
+        return
+        
+    # 2. Define the exact eras mapping (album name = classification label)
+    eras_mapping = {
+        "Taylor Swift": ["Taylor Swift"],
+        "Fearless":     ["Fearless"],
+        "Speak Now":    ["Speak Now"],
+        "Red":          ["Red"],
+        "1989":         ["1989"],
+        "Reputation":   ["reputation"],
+        "Lover":        ["Lover"],
+        "Folklore":     ["Folklore"],
+        "Evermore":     ["Evermore"],
+        "Midnights":    ["Midnights"],
+    }
+    
+    # 3. Initialize collectors
+    print("=> Initializing Spotify Collector...")
+    spotify = SpotifyCollector(spotify_client_id, spotify_client_secret)
+    
+    genius_collector = None
+    if genius_access_token:
+        print("=> Initializing Genius Collector...")
+        genius_collector = GeniusCollector(genius_access_token)
+    else:
+        print("=> [WARN] GENIUS_ACCESS_TOKEN not detected in .env. Skipping lyrics extraction.")
+        
+    print()
+    
+    dataset_records = []
+    
+    # 4. Process Each Era and its Albums
+    for era, albums in eras_mapping.items():
+        print(f"=== Processing {era} ===")
+        
+        for album in albums:
+            # Fetch tracks (and technical features if available) from Spotify
+            tracks = spotify.get_album_tracks_with_features(album)
+            
+            seen_track_names = set()
+            cleaned_tracks = []
+            
+            for t in tracks:
+                base_name = t["song_name"].lower()
+                if "voice memo" in base_name or "live" in base_name or "remix" in base_name:
+                    continue
+                    
+                if base_name not in seen_track_names:
+                    seen_track_names.add(base_name)
+                    cleaned_tracks.append(t)
+            
+            print(f"  --> After deduplication, processing {len(cleaned_tracks)} unique studio tracks for '{album}'")
+            
+            # 5. Fetch Lyrics (If Genius is enabled)
+            for t in cleaned_tracks:
+                record = {
+                    "song_name": t["song_name"],
+                    "album": t["spotify_album"],
+                    "era": era,
+                    "danceability": t["danceability"],
+                    "energy": t["energy"],
+                    "loudness": t["loudness"],
+                    "tempo": t["tempo"],
+                    "valence": t["valence"],
+                    "acousticness": t["acousticness"],
+                    "speechiness": t["speechiness"],
+                    "instrumentalness": t["instrumentalness"],
+                    "liveness": t["liveness"],
+                    "duration_ms": t["duration_ms"]
+                }
+                
+                if genius_collector:
+                    print(f"    Fetching lyrics: '{t['song_name']}'...", end=" ")
+                    lyrics = genius_collector.fetch_lyrics(t["song_name"])
+                    record["lyrics"] = lyrics
+                    if lyrics:
+                        print("SUCCESS")
+                    else:
+                        print("NOT FOUND")
+                
+                dataset_records.append(record)
+                
+        print() 
+        
+    # 6. Final Processing and Fallback Merge
+    print("\n=> All eras processed. Building DataFrame...")
+    df = pd.DataFrame(dataset_records)
+    
+    # Check if we need to fill audio features from our fallback
+    audio_cols = ["danceability", "energy", "loudness", "tempo", "valence", "acousticness", "speechiness"]
+    if df[audio_cols].isnull().all().all():
+        print("=> [NOTICE] Spotify results contain no audio features (API Restriction).")
+        df_fallback = fetch_audio_features_fallback()
+        
+        if df_fallback is not None:
+            print("=> [MERGING] Merging static features with collected lyrics...")
+            # We merge on song_name. First, remove the empty columns from the original df
+            df = df.drop(columns=audio_cols + ["instrumentalness", "liveness", "duration_ms"])
+            
+            # Basic normalization for better merging
+            df["merge_key"] = df["song_name"].str.lower().str.strip()
+            df_fallback["merge_key"] = df_fallback["song_name"].str.lower().str.strip()
+            
+            # Drop redundant song_name from fallback to avoid column suffixing
+            df_fallback = df_fallback.drop(columns=["song_name"])
+            
+            df = pd.merge(df, df_fallback, on="merge_key", how="left")
+            df = df.drop(columns=["merge_key"])
+            print(f"  [SUCCESS] Successfully merged {df['danceability'].notnull().sum()} song features.")
+
+    # 7. Save Dataset
+    if len(df) == 0:
+        print("[ERROR] No data collected!")
+        return 
+        
+    output_dir = "data/raw"
+    os.makedirs(output_dir, exist_ok=True)
+    
+    output_filepath = os.path.join(output_dir, "taylor_eras_multimodal_dataset.csv")
+    df.to_csv(output_filepath, index=False)
+    
+    print("\n==================================================")
+    print(f"  Dataset Successfully Created!")
+    print(f"  Total Tracks: {len(df)}")
+    print(f"  Saved to: {output_filepath}")
+    print("==================================================")
+
+if __name__ == "__main__":
+    build_multimodal_dataset()

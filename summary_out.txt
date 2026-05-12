@@ -1,0 +1,23 @@
+﻿=== DF1 ===
+Shape: [90, 16]
+Columns: ['track_name', 'album', 'era', 'lyrics', 'danceability', 'energy', 'loudness', 'speechiness', 'acousticness', 'instrumentalness', 'liveness', 'valence', 'tempo', 'duration_ms', 'key', 'mode']
+Dtypes: {'track_name': 'str', 'album': 'str', 'era': 'str', 'lyrics': 'str', 'danceability': 'float64', 'energy': 'float64', 'loudness': 'float64', 'speechiness': 'float64', 'acousticness': 'float64', 'instrumentalness': 'float64', 'liveness': 'float64', 'valence': 'float64', 'tempo': 'float64', 'duration_ms': 'int64', 'key': 'int64', 'mode': 'int64'}
+Nulls: {'track_name': 0, 'album': 0, 'era': 0, 'lyrics': 0, 'danceability': 0, 'energy': 0, 'loudness': 0, 'speechiness': 0, 'acousticness': 0, 'instrumentalness': 0, 'liveness': 0, 'valence': 0, 'tempo': 0, 'duration_ms': 0, 'key': 0, 'mode': 0}
+label_col_album : {'Lover': 18, 'folklore': 16, 'reputation': 15, 'evermore': 15, '1989 (Deluxe)': 13, 'Midnights': 13}
+label_col_era : {'Lover': 18, 'Folklore': 16, 'Reputation': 15, 'Evermore': 15, '1989': 13, 'Midnights': 13}
+Text cols: ['lyrics']
+Audio cols: ['danceability', 'energy', 'loudness', 'speechiness', 'acousticness', 'instrumentalness', 'liveness', 'valence', 'tempo', 'duration_ms', 'key', 'mode']
+
+=== DF2 ===
+Shape: [338, 4]
+Columns: ['Unnamed: 0', 'album', 'song_title', 'lyric']
+Dtypes: {'Unnamed: 0': 'int64', 'album': 'str', 'song_title': 'str', 'lyric': 'str'}
+Nulls: {'Unnamed: 0': 0, 'album': 0, 'song_title': 0, 'lyric': 0}
+label_col_album : {'Unreleased Songs': 88, 'Taylor Swift  by Concert Genius': 32, 'Red': 20, 'Lover': 18, 'Speak Now (Deluxe)': 18, '1989 (Deluxe)': 17, 'Vol. 2 Demo CD': 16, 'folklore': 16, 'reputation': 16, 'Fearless': 14, '2004-2005 Demo CD': 12, 'Taylor Swift': 12, 'Live from Paris': 9, 'Taylor Swift - folklore (Traduτπo em PortuguΩs) by Genius Brasil Traduτ⌡es': 9, 'Fearless (Platinum Edition)': 5, 'Speak Now: World Tour Live (Deluxe)': 5, 'The Taylor Swift Holiday Collection - EP': 5, '2004 Demo CD': 3, 'Live from SoHo - EP': 3, 'Speak Now : World Tour Live (Brazilian Edition)': 3, 'Taylor Songs 2003 Demo': 3, 'Taylor Swift Interviews by Genius Users': 3, '2003 Demo CD': 2, '2004 Demo CD (Three Songs)': 1, 'Beautiful Eyes - EP': 1, 'Love Story [UK CD Single] ': 1, 'Spotify Singles': 1, 'Stripped: Raw & Real': 1, 'Taylor Swift (Best Buy Exclusive) ': 1, 'Taylor Swift (Deluxe)': 1, 'Teardrops On My Guitar - EP': 1, 'folklore (Deluxe)': 1}
+Text cols: ['lyric']
+Audio cols: []
+
+=== OVERLAP ===
+Common cols: ['album']
+Only df1: ['acousticness', 'danceability', 'duration_ms', 'energy', 'era', 'instrumentalness', 'key', 'liveness', 'loudness', 'lyrics', 'mode', 'speechiness', 'tempo', 'track_name', 'valence']
+Only df2: ['Unnamed: 0', 'lyric', 'song_title']

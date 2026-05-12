@@ -1,0 +1,152 @@
+{
+    "classes": [
+        "1989",
+        "Evermore",
+        "Folklore",
+        "Lover",
+        "Midnights",
+        "Reputation"
+    ],
+    "vocab_size": 1500,
+    "sparsity_perc": 0.9661935483870968,
+    "topics": {
+        "Topic 1": [
+            "love",
+            "im",
+            "like",
+            "want",
+            "know",
+            "dont",
+            "time",
+            "daylight",
+            "think",
+            "got"
+        ],
+        "Topic 2": [
+            "dont",
+            "shake",
+            "im",
+            "got",
+            "thats",
+            "wanna",
+            "love",
+            "like",
+            "game",
+            "baby"
+        ],
+        "Topic 3": [
+            "wish",
+            "youre",
+            "look",
+            "right",
+            "id",
+            "stay",
+            "want",
+            "dream",
+            "say",
+            "make"
+        ],
+        "Topic 4": [
+            "clear",
+            "good",
+            "im",
+            "baby",
+            "like",
+            "wanted",
+            "time",
+            "bad",
+            "know",
+            "youre"
+        ],
+        "Topic 5": [
+            "man",
+            "know",
+            "like",
+            "je",
+            "stay",
+            "da",
+            "id",
+            "hey",
+            "say",
+            "ne"
+        ]
+    },
+    "results": {
+        "text_only": {
+            "accuracy": 0.5833333333333334,
+            "precision": 0.517361111111111,
+            "recall": 0.5833333333333334,
+            "f1_score": 0.5357142857142857
+        },
+        "audio_only": {
+            "accuracy": 0.5416666666666666,
+            "precision": 0.6160714285714285,
+            "recall": 0.5416666666666666,
+            "f1_score": 0.5105283605283605
+        },
+        "early": {
+            "accuracy": 0.375,
+            "precision": 0.4763888888888889,
+            "recall": 0.375,
+            "f1_score": 0.34940476190476194
+        },
+        "late": {
+            "accuracy": 0.4583333333333333,
+            "precision": 0.5803240740740742,
+            "recall": 0.4583333333333333,
+            "f1_score": 0.4351037851037851
+        }
+    },
+    "best_model": "Text Only (RF)",
+    "era_report": {
+        "1989": {
+            "precision": 0.75,
+            "recall": 1.0,
+            "f1-score": 0.8571428571428571,
+            "support": 3.0
+        },
+        "Evermore": {
+            "precision": 0.6666666666666666,
+            "recall": 0.5,
+            "f1-score": 0.5714285714285714,
+            "support": 4.0
+        },
+        "Folklore": {
+            "precision": 0.5,
+            "recall": 0.5,
+            "f1-score": 0.5,
+            "support": 4.0
+        },
+        "Lover": {
+            "precision": 0.375,
+            "recall": 0.75,
+            "f1-score": 0.5,
+            "support": 4.0
+        },
+        "Midnights": {
+            "precision": 0.8,
+            "recall": 0.8,
+            "f1-score": 0.8,
+            "support": 5.0
+        },
+        "Reputation": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1-score": 0.0,
+            "support": 4.0
+        },
+        "accuracy": 0.5833333333333334,
+        "macro avg": {
+            "precision": 0.5152777777777778,
+            "recall": 0.5916666666666667,
+            "f1-score": 0.5380952380952381,
+            "support": 24.0
+        },
+        "weighted avg": {
+            "precision": 0.517361111111111,
+            "recall": 0.5833333333333334,
+            "f1-score": 0.5357142857142857,
+            "support": 24.0
+        }
+    }
+}

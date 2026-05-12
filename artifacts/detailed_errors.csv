@@ -1,0 +1,1265 @@
+album_name,ep,album_release,track_number,track_name,artist,track_release,danceability,energy,key,loudness,mode,speechiness,acousticness,instrumentalness,liveness,valence,tempo,time_signature,duration_ms,explicit,key_name,mode_name,key_mode,lyrics,era,acoustic_energy_ratio,dance_valence_product,loudness_norm,tempo_bin,speech_acoustic_diff,neg,neu,pos,compound,key_0.0,key_1.0,key_2.0,key_3.0,key_4.0,key_5.0,key_6.0,key_7.0,key_8.0,key_9.0,key_10.0,key_11.0,mode_0.0,mode_1.0,predicted
+1989,False,2014-10-27,14.0,Wonderland,Taylor Swift,2014-10-27,0.422,0.692,3.0,-5.447,1.0,0.0549,0.0493,2.57e-05,0.177,0.197,184.014,4.0,245560.0,False,D#,major,D# major,blank space clear new york style style style new york style shake new york I and I you I you love love you and love I I love the love the we you we,1989,0.07113997113997114,0.083134,0.9092166666666667,4.0,0.005600000000000001,0.036,0.465,0.499,0.9747,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,Lover
+1989,False,2014-10-27,15.0,You Are In Love,Taylor Swift,2014-10-27,0.474,0.48,2.0,-8.894,1.0,0.0622,0.707,0.000108,0.0903,0.319,170.109,4.0,267107.0,False,D,major,D major,new york clear blank space style shake style shake blank space clear style I the love I love and I we we the and love and the love we love I we the,1989,1.4698544698544698,0.151206,0.8517666666666667,4.0,-0.6447999999999999,0.069,0.403,0.528,0.9771,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,Lover
+reputation,False,2017-11-10,4.0,Don't Blame Me,Taylor Swift,2017-11-10,0.615,0.534,9.0,-6.719,0.0,0.0386,0.106,1.76e-05,0.0607,0.193,135.917,4.0,236413.0,False,A,minor,A minor,look snake snake snake reputation made made made reputation snake we love and love you love you love I you love the love love and you the and the we,Reputation,0.19813084112149532,0.118695,0.8880166666666667,3.0,-0.06739999999999999,0.0,0.428,0.572,0.9854,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,1.0,0.0,Lover
+folklore,False,2020-07-24,1.0,the 1,Taylor Swift,2020-07-24,0.78,0.361,0.0,-6.942,1.0,0.048,0.75,7.14e-06,0.108,0.163,139.902,4.0,210240.0,True,C,major,C major,"I'm doing good, I'm on some new shit
+Been saying ""yes"" instead of ""no""
+I thought I saw you at the bus stop, I didn't though
+I hit the ground running each night
+I hit the Sunday matinée
+You know the greatest films of all time were never made
+I guess you never know, never know
+And if you wanted me, you really should've showed
+And if you never bleed, you're never gonna grow
+And it's alright now
+But we were something, don't you think so?
+Roaring twenties, tossing pennies in the pool
+And if my wishes came true
+It would've been you
+In my defense, I have none
+For never leaving well enough alone
+But it would've been fun
+If you would've been the one
+(Ooh)
+I have this dream you're doing cool shit
+Having adventures on your own
+You meet some woman on the internet and take her home
+We never painted by the numbers, baby
+But we were making it count
+You know the greatest loves of all time are over now
+I guess you never know, never know
+And it's another day waking up alone
+But we were something, don't you think so?
+Roaring twenties, tossing pennies in the pool
+And if my wishes came true
+It would've been you
+In my defense, I have none
+For never leaving well enough alone
+But it would've been fun
+If you would've been the one
+I, I, I persist and resist the temptation to ask you
+If one thing had been different
+Would everything be different today?
+We were something, don't you think so?
+Rosé flowing with your chosen family
+And it would've been sweet
+If it could've been me
+In my defense, I have none
+For digging up the grave another time
+But it would've been fun
+If you would've been the one
+(Ooh)",Folklore,2.0718232044198897,0.12714,0.8843,3.0,-0.702,0.069,0.759,0.172,0.9894,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,Lover
+folklore,False,2020-07-24,2.0,cardigan,Taylor Swift,2020-07-24,0.612,0.58,0.0,-8.572,0.0,0.0419,0.525,0.000414,0.26,0.534,130.045,4.0,239560.0,False,C,minor,C minor,"Vintage tee, brand new phone
+High heels on cobblestones
+When you are young, they assume you know nothing
+Sequin smile, black lipstick
+Sensual politics
+When you are young, they assume you know nothing
+But I knew you
+Dancin' in your Levi's
+Drunk under a streetlight, I
+I knew you
+Hand under my sweatshirt
+Baby, kiss it better, I
+And when I felt like I was an old cardigan
+Under someone's bed
+You put me on and said I was your favorite
+A friend to all is a friend to none
+Chase two girls, lose the one
+When you are young, they assume you know nothing
+But I knew you
+Playing hide-and-seek and
+Giving me your weekends, I
+I knew you
+Your heartbeat on the High Line
+Once in twenty lifetimes, I
+And when I felt like I was an old cardigan
+Under someone's bed
+You put me on and said I was your favorite
+To kiss in cars and downtown bars
+Was all we needed
+You drew stars around my scars
+But now I'm bleedin'
+'Cause I knew you
+Steppin' on the last train
+Marked me like a bloodstain, I
+I knew you
+Tried to change the ending
+Peter losing Wendy, I
+I knew you
+Leavin' like a father
+Running like water, I
+And when you are young, they assume you know nothing
+But I knew you'd linger like a tattoo kiss
+I knew you'd haunt all of my what-ifs
+The smell of smoke would hang around this long
+'Cause I knew everything when I was young
+I knew I'd curse you for the longest time
+Chasin' shadows in the grocery line
+I knew you'd miss me once the thrill expired
+And you'd be standin' in my front porch light
+And I knew you'd come back to me
+You'd come back to me
+And you'd come back to me
+And you'd come back
+And when I felt like I was an old cardigan
+Under someone's bed
+You put me on and said I was your favorite",Folklore,0.9036144578313254,0.326808,0.8571333333333333,3.0,-0.48310000000000003,0.06,0.746,0.194,0.9944,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,Evermore
+folklore,False,2020-07-24,3.0,the last great american dynasty,Taylor Swift,2020-07-24,0.688,0.653,7.0,-8.558,1.0,0.0403,0.481,0.00414,0.106,0.701,147.991,4.0,231000.0,True,G,major,G major,"Rebekah rode up on the afternoon train, it was sunny
+Her saltbox house on the coast took her mind off St. Louis
+Bill was the heir to the Standard Oil name and money
+And the town said, ""How did a middle-class divorcée do it?""
+The wedding was charming, if a little gauche
+There's only so far new money goes
+They picked out a home and called it ""Holiday House""
+Their parties were tasteful, if a little loud
+The doctor had told him to settle down
+It must have been her fault his heart gave out
+And they said
+""There goes the last great American dynasty
+Who knows, if she never showed up, what could've been
+There goes the maddest woman this town has ever seen
+She had a marvelous time ruining everything""
+Rebekah gave up on the Rhode Island set forever
+Flew in all her Bitch Pack friends from the city
+Filled the pool with champagne and swam with the big names
+And blew through the money on the boys and the ballet
+And losing on card game bets with Dalí
+And they said
+""There goes the last great American dynasty
+Who knows, if she never showed up, what could've been
+There goes the most shameless woman this town has ever seen
+She had a marvelous time ruining everything""
+They say she was seen on occasion
+Pacing the rocks, staring out at the midnight sea
+And in a feud with her neighbor
+She stole his dog and dyed it key lime green
+Fifty years is a long time
+Holiday House sat quietly on that beach
+Free of women with madness, their men and bad habits
+And then it was bought by me
+Who knows, if I never showed up, what could've been
+There goes the loudest woman this town has ever seen
+I had a marvelous time ruining everything
+I had a marvelous time ruining everything
+A marvelous time ruining everything
+A marvelous time
+I had a marvelous time",Folklore,0.735474006116208,0.48228799999999994,0.8573666666666667,3.0,-0.4407,0.092,0.752,0.157,0.9825,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,Evermore
+folklore,False,2020-07-24,4.0,exile,Taylor Swift,2020-07-24,0.31,0.374,6.0,-8.464,1.0,0.0275,0.761,2.46e-05,0.11,0.16,75.938,4.0,285640.0,False,F#,major,F# major,mirrorball exile exile august august betty cardigan exile cardigan exile you love you you the I we and I we and I you we and and you I we the,Folklore,2.029333333333333,0.0496,0.8589333333333333,0.0,-0.7335,0.0,0.856,0.144,0.6369,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,Lover
+folklore,False,2020-07-24,5.0,my tears ricochet,Taylor Swift,2020-07-24,0.456,0.265,0.0,-10.663,1.0,0.0328,0.814,0.0,0.0679,0.112,129.947,4.0,255893.0,False,C,major,C major,"We gather here, we line up, weepin' in a sunlit room
+And if I'm on fire, you'll be made of ashes, too
+Even on my worst day, did I deserve, babe
+All the hell you gave me?
+'Cause I loved you, I swear I loved you
+'Til my dying day
+I didn't have it in myself to go with grace
+And you're the hero flying around, saving face
+And if I'm dead to you, why are you at the wake?
+Cursing my name, wishing I stayed
+Look at how my tears ricochet
+We gather stones, never knowing what they'll mean
+Some to throw, some to make a diamond ring
+You know I didn't want to have to haunt you
+But what a ghostly scene
+You wear the same jewels that I gave you
+As you bury me
+I didn't have it in myself to go with grace
+'Cause when I'd fight, you used to tell me I was brave
+And if I'm dead to you, why are you at the wake?
+Cursing my name, wishing I stayed
+Look at how my tears ricochet
+And I can go anywhere I want
+Anywhere I want, just not home
+And you can aim for my heart, go for blood
+But you would still miss me in your bones
+And I still talk to you (When I'm screaming at the sky)
+And when you can't sleep at night (You hear my stolen lullabies)
+I didn't have it in myself to go with grace
+And so the battleships will sink beneath the waves
+You had to kill me, but it killed you just the same
+Cursing my name, wishing I stayed
+You turned into your worst fears
+And you're tossing out blame, drunk on this pain
+Crossing out the good years
+And you're cursing my name, wishing I stayed
+Look at how my tears ricochet",Folklore,3.060150375939849,0.051072000000000006,0.8222833333333334,2.0,-0.7811999999999999,0.21,0.683,0.107,-0.9898,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,Evermore
+folklore,False,2020-07-24,6.0,mirrorball,Taylor Swift,2020-07-24,0.549,0.417,7.0,-10.064,1.0,0.035,0.686,1.9e-06,0.0604,0.347,110.137,4.0,208973.0,False,G,major,G major,"I want you to know
+I'm a mirrorball
+I'll show you every version of yourself tonight
+I'll get you out on the floor
+Shimmering beautiful
+And when I break, it's in a million pieces
+Hush, when no one is around, my dear
+You'll find me on my tallest tiptoes
+Spinning in my highest heels, love
+Shining just for you
+Hush, I know they said the end is near
+But I'm still on my tallest tiptoes
+Spinning in my highest heels, love
+Shining just for you
+I want you to know
+I'm a mirrorball
+I can change everything about me to fit in
+You are not like the regulars
+The masquerade revelers
+Drunk as they watch my shattered edges glisten
+Hush, when no one is around, my dear
+You'll find me on my tallest tiptoes
+Spinning in my highest heels, love
+Shining just for you
+Hush, I know they said the end is near
+But I'm still on my tallest tiptoes
+Spinning in my highest heels, love
+Shining just for you
+And they called off the circus, burned the disco down
+When they sent home the horses and the rodeo clowns
+I'm still on that tightrope
+I'm still trying everything to get you laughing at me
+And I'm still a believer, but I don't know why
+I've never been a natural, all I do is try, try, try
+I'm still on that trapeze
+I'm still trying everything to keep you looking at me
+Because I'm a mirrorball
+I'm a mirrorball
+And I'll show you every version of yourself tonight",Folklore,1.641148325358852,0.190503,0.8322666666666667,2.0,-0.651,0.06,0.805,0.135,0.9713,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,Evermore
+folklore,False,2020-07-24,7.0,seven,Taylor Swift,2020-07-24,0.602,0.494,4.0,-10.813,1.0,0.0277,0.888,2.59e-05,0.0902,0.374,94.955,4.0,208907.0,False,E,major,E major,"Please picture me in the trees
+I hit my peak at seven
+Feet in the swing over the creek
+I was too scared to jump in
+But I, I was high in the sky
+With Pennsylvania under me
+Are there still beautiful things?
+Sweet tea in the summer
+Cross your heart, won't tell no other
+And though I can’t recall your face
+I still got love for you
+Your braids like a pattern
+Love you to the Moon and to Saturn
+Passed down like folk songs
+The love lasts so long
+And I've been meaning to tell you
+I think your house is haunted
+Your dad is always mad and that must be why
+And I think you should come live with me
+And we can be pirates
+Then you won't have to cry
+Or hide in the closet
+And just like a folk song
+Our love will be passed on
+Please picture me in the weeds
+Before I learned civility
+I used to scream ferociously
+Any time I wanted
+I, I
+Sweet tea in the summer
+Cross my heart, won’t tell no other
+And though I can't recall your face
+I still got love for you
+Pack your dolls and a sweater
+We'll move to India forever
+Passed down like folk songs
+Our love lasts so long",Folklore,1.793939393939394,0.225148,0.8197833333333333,1.0,-0.8603000000000001,0.069,0.658,0.273,0.996,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,Evermore
+folklore,False,2020-07-24,9.0,this is me trying,Taylor Swift,2020-07-24,0.511,0.478,9.0,-9.837,1.0,0.0322,0.312,2.3e-05,0.147,0.408,135.882,4.0,195107.0,False,A,major,A major,"I've been having a hard time adjusting
+I had the shiniest wheels, now they're rusting
+I didn't know if you'd care if I came back
+I have a lot of regrets about that
+Pulled the car off the road to the lookout
+Could've followed my fears all the way down
+And maybe I don't quite know what to say
+But I'm here in your doorway
+I just wanted you to know that this is me trying
+I just wanted you to know that this is me trying
+They told me all of my cages were mental
+So I got wasted like all my potential
+And my words shoot to kill when I'm mad
+I have a lot of regrets about that
+I was so ahead of the curve, the curve became a sphere
+Fell behind all my classmates and I ended up here
+Pouring out my heart to a stranger
+But I didn't pour the whiskey
+I just wanted you to know that this is me trying
+I just wanted you to know that this is me trying
+At least I'm trying
+And it's hard to be at a party when I feel like an open wound
+It's hard to be anywhere these days when all I want is you
+You're a flashback in a film reel on the one screen in my town
+And I just wanted you to know that this is me trying
+(And maybe I don't quite know what to say)
+I just wanted you to know that this is me trying
+At least I'm trying",Folklore,0.651356993736952,0.20848799999999998,0.83605,3.0,-0.2798,0.114,0.831,0.055,-0.939,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,Evermore
+folklore,False,2020-07-24,10.0,illicit affairs,Taylor Swift,2020-07-24,0.529,0.304,10.0,-10.567,1.0,0.0356,0.862,0.0,0.108,0.44,119.58,4.0,190893.0,False,A#,major,A# major,"Make sure nobody sees you leave
+Hood over your head, keep your eyes down
+Tell your friends you're out for a run
+You’ll be flushed when you return
+Take the road less traveled by
+Tell yourself you can always stop
+What started in beautiful rooms
+Ends with meetings in parking lots
+And that's the thing about illicit affairs
+And clandestine meetings and longing stares
+It's born from just one single glance
+But it dies and it dies and it dies
+A million little times
+Leave the perfume on the shelf
+That you picked out just for him
+So you leave no trace behind
+Like you don’t even exist
+Take the words for what they are
+A dwindling, mercurial high
+A drug that only worked
+The first few hundred times
+And that's the thing about illicit affairs
+And clandestine meetings and stolen stares
+They show their truth one single time
+But they lie and they lie and they lie
+A million little times
+And you wanna scream
+Don't call me ""kid,"" don't call me ""baby""
+Look at this godforsaken mess that you made me
+You showed me colors you know I can't see with anyone else
+Don't call me ""kid,"" don't call me ""baby""
+Look at this idiotic fool that you made me
+You taught me a secret language I can't speak with anyone else
+And you know damn well
+For you, I would ruin myself
+A million little times",Folklore,2.8262295081967213,0.23276000000000002,0.8238833333333333,2.0,-0.8264,0.143,0.796,0.061,-0.9742,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,1.0,Evermore
+folklore,False,2020-07-24,11.0,invisible string,Taylor Swift,2020-07-24,0.651,0.459,4.0,-11.128,0.0,0.0507,0.859,6.63e-05,0.105,0.454,83.455,4.0,252880.0,False,E,minor,E minor,"Green was the color of the grass
+Where I used to read at Centennial Park
+I used to think I would meet somebody there
+Teal was the color of your shirt
+When you were sixteen at the yogurt shop
+You used to work at to make a little money
+Time, curious time
+Gave me no compasses, gave me no signs
+Were there clues I didn't see?
+And isn't it just so pretty to think
+All along there was some
+Invisible string
+Tying you to me?
+Ooh-ooh-ooh-ooh
+Bad was the blood of the song in the cab
+On your first trip to LA
+You ate at my favorite spot for dinner
+Bold was the waitress on our three-year trip
+Getting lunch down by the Lakes
+She said I looked like an American singer
+Time, mystical time
+Cutting me open, then healing me fine
+Were there clues I didn't see?
+And isn't it just so pretty to think
+All along there was some
+Invisible string
+Tying you to me?
+Ooh-ooh-ooh-ooh
+A string that pulled me
+Out of all the wrong arms, right into that dive bar
+Something wrapped all of my past mistakes in barbed wire
+Chains around my demons
+Wool to brave the seasons
+One single thread of gold
+Tied me to you
+Cold was the steel of my axe to grind
+For the boys who broke my heart
+Now I send their babies presents
+Gold was the color of the leaves
+When I showed you around Centennial Park
+Hell was the journey, but it brought me heaven
+Time, wondrous time
+Gave me the blues and then purple-pink skies
+And it's cool, baby, with me
+And isn't it just so pretty to think
+All along there was some
+Invisible string
+Tying you to me?
+Ooh-ooh-ooh-ooh
+Me
+Ooh-ooh-ooh-ooh
+(Ah-ah-ah)
+(Ah-ah-ah)",Folklore,1.867391304347826,0.29555400000000004,0.8145333333333333,0.0,-0.8083,0.052,0.853,0.095,0.947,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,Evermore
+folklore,False,2020-07-24,12.0,mad woman,Taylor Swift,2020-07-24,0.593,0.7,3.0,-9.016,1.0,0.0492,0.67,6.77e-06,0.116,0.451,141.898,4.0,237267.0,True,D#,major,D# major,"What did you think I'd say to that?
+Does a scorpion sting when fighting back?
+They strike to kill, and you know I will
+You know I will
+What do you sing on your drive home?
+Do you see my face in the neighbor's lawn?
+Does she smile?
+Or does she mouth, ""Fuck you forever""?
+Every time you call me crazy, I get more crazy
+What about that?
+And when you say I seem angry, I get more angry
+And there's nothing like a mad woman
+What a shame she went mad
+No one likes a mad woman
+You made her like that
+And you'll poke that bear 'til her claws come out
+And you find something to wrap your noose around
+And there's nothing like a mad woman
+Now I breathe flames each time I talk
+My cannons all firin' at your yacht
+They say, ""Move on,"" but you know I won't
+And women like hunting witches too
+Doing your dirtiest work for you
+It's obvious that wanting me dead
+Has really brought you two together
+Every time you call me crazy, I get more crazy
+What about that?
+And when you say I seem angry, I get more angry
+And there's nothing like a mad woman
+What a shame she went mad
+No one likes a mad woman
+You made her like that
+And you'll poke that bear 'til her claws come out
+And you find something to wrap your noose around
+And there's nothing like a mad woman
+I'm taking my time, taking my time
+'Cause you took everything from me
+Watching you climb, watching you climb
+Over people like me
+The master of spin has a couple side flings
+Good wives always know
+She should be mad, should be scathing like me, but
+No one likes a mad woman
+What a shame she went mad
+You made her like that",Folklore,0.9557774607703282,0.267443,0.8497333333333333,3.0,-0.6208,0.222,0.654,0.123,-0.9862,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,Evermore
+folklore,False,2020-07-24,13.0,epiphany,Taylor Swift,2020-07-24,0.317,0.254,1.0,-13.679,1.0,0.0286,0.727,0.000326,0.0867,0.103,93.933,4.0,289747.0,False,C#,major,C# major,"Keep your helmet, keep your life, son
+Just a flesh wound, here's your rifle
+Crawling up the beaches now
+""Sir, I think he's bleeding out""
+And some things you just can't speak about
+With you I serve, with you I fall down, down
+Watch you breathe in, watch you breathing out, out
+Something med school did not cover
+Someone's daughter, someone's mother
+Holds your hand through plastic now
+""Doc, I think she's crashing out""
+And some things you just can't speak about
+Only twenty minutes to sleep
+But you dream of some epiphany
+Just one single glimpse of relief
+To make some sense of what you've seen
+With you I serve, with you I fall down, down (Down)
+Watch you breathe in, watch you breathing out, out
+With you I serve (With you I serve), with you I fall down (Down), down (Down)
+Watch you breathe in (Watch you breathe in), watch you breathing out (Out), out (Out)
+Only twenty minutes to sleep
+But you dream of some epiphany
+Just one single glimpse of relief
+To make some sense of what you've seen",Folklore,2.850980392156863,0.032651,0.7720166666666667,1.0,-0.6984,0.0,0.916,0.084,0.9371,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,Evermore
+folklore,False,2020-07-24,14.0,betty,Taylor Swift,2020-07-24,0.595,0.376,0.0,-8.767,1.0,0.0256,0.589,0.0,0.0989,0.476,95.946,4.0,294520.0,True,C,major,C major,"Betty, I won't make assumptions
+About why you switched your homeroom, but
+I think it's 'cause of me
+Betty, one time, I was riding on my skateboard
+When I passed your house
+It's like I couldn't breathe
+You heard the rumors from Inez
+You can't believe a word she says
+Most times, but this time, it was true
+The worst thing that I ever did
+Was what I did to you
+But if I just showed up at your party
+Would you have me? Would you want me?
+Would you tell me to go fuck myself
+Or lead me to the garden?
+In the garden, would you trust me
+If I told you it was just a summer thing?
+I'm only seventeen, I don't know anything
+But I know I miss you
+Betty, I know where it all went wrong
+Your favorite song was playing
+From the far side of the gym
+I was nowhere to be found
+I hate the crowds, you know that
+Plus, I saw you dance with him
+You heard the rumors from Inez
+You can't believe a word she says
+Most times, but this time, it was true
+The worst thing that I ever did
+Was what I did to you
+But if I just showed up at your party
+Would you have me? Would you want me?
+Would you tell me to go fuck myself
+Or lead me to the garden?
+In the garden, would you trust me
+If I told you it was just a summer thing?
+I'm only seventeen, I don't know anything
+But I know I miss you
+I was walking home on broken cobblestones
+Just thinking of you when she pulled up like
+A figment of my worst intentions
+She said, ""James, get in, let's drive""
+Those days turned into nights
+Slept next to her, but
+I dreamt of you all summer long
+Betty, I'm here on your doorstep
+And I planned it out for weeks now
+But it's finally sinkin' in
+Betty, right now is the last time
+I can dream about what happens when
+You see my face again
+The only thing I wanna do
+Is make it up to you
+So I showed up at your party
+Yeah, I showed up at your party
+Yeah, I showed up at your party
+Will you have me? Will you love me?
+Will you kiss me on the porch
+In front of all your stupid friends?
+If you kiss me, will it be just like I dreamed it?
+Will it patch your broken wings?
+I'm only seventeen, I don't know anything
+But I know I miss you
+Standing in your cardigan
+Kissin' in my car again
+Stopped at a streetlight
+You know I miss you",Folklore,1.5623342175066313,0.28321999999999997,0.8538833333333334,1.0,-0.5634,0.114,0.731,0.155,0.9572,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,Evermore
+folklore,False,2020-07-24,15.0,peace,Taylor Swift,2020-07-24,0.644,0.284,5.0,-12.879,1.0,0.0821,0.916,1.5e-05,0.0909,0.328,150.072,4.0,234000.0,True,F,major,F major,"Our coming-of-age has come and gone
+Suddenly, this summer, it's clear
+I never had the courage of my convictions
+As long as danger is near
+And it's just around the corner, darlin'
+'Cause it lives in me
+No, I could never give you peace
+But I'm a fire and I'll keep your brittle heart warm
+If your cascade, ocean wave blues come
+All these people think love's for show
+But I would die for you in secret
+The devil's in the details, but you got a friend in me
+Would it be enough if I could never give you peace?
+Your integrity makes me seem small
+You paint dreamscapes on the wall
+I talk shit with my friends, it's like I'm wasting your honor
+And you know that I'd swing with you for the fences
+Sit with you in the trenches
+Give you my wild, give you a child
+Give you the silence that only comes when two people understand each other
+Family that I chose, now that I see your brother as my brother
+Is it enough?
+But there's robbers to the east, clowns to the west
+I'd give you my sunshine, give you my best
+But the rain is always gonna come if you're standin' with me
+But I'm a fire and I'll keep your brittle heart warm
+If your cascade, ocean wave blues come
+All these people think love's for show
+But I would die for you in secret
+The devil's in the details, but you got a friend in me
+Would it be enough if I could never give you peace?
+Would it be enough if I could never give you peace?
+Would it be enough if I could never give you peace?",Folklore,3.2140350877192985,0.211232,0.78535,3.0,-0.8339000000000001,0.146,0.734,0.12,-0.8248,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,Evermore
+folklore,False,2020-07-24,16.0,hoax,Taylor Swift,2020-07-24,0.676,0.178,8.0,-15.01,1.0,0.0394,0.964,7.9e-06,0.135,0.404,118.84,4.0,220040.0,False,G#,major,G# major,"My only one
+My smoking gun
+My eclipsed sun
+This has broken me down
+My twisted knife
+My sleepless night
+My winless fight
+This has frozen my ground
+Stood on the cliffside screaming, ""Give me a reason""
+Your faithless love's the only hoax I believe in
+Don't want no other shade of blue but you
+No other sadness in the world would do
+My best laid plan
+Your sleight of hand
+My barren land
+I am ash from your fire
+Stood on the cliffside screaming, ""Give me a reason""
+Your faithless love's the only hoax I believe in
+Don't want no other shade of blue but you
+No other sadness in the world would do
+You know I left a part of me back in New York
+You knew the hero died so what's the movie for?
+You knew it still hurts underneath my scars
+From when they pulled me apart
+You knew the password so I let you in the door
+You knew you won so what's the point of keeping score?
+You knew it still hurts underneath my scars
+From when they pulled me apart
+But what you did was just as dark
+(Ah, ah, ah)
+Darling, this was just as hard
+As when they pulled me apart
+My only one
+My kingdom come undone
+My broken drum
+You have beaten my heart
+Don't want no other shade of blue but you
+No other sadness in the world would do",Folklore,5.385474860335195,0.273104,0.7498333333333334,2.0,-0.9246,0.228,0.667,0.104,-0.9825,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,Evermore
+folklore,False,2020-07-24,17.0,the lakes,Taylor Swift,2020-07-24,0.313,0.258,2.0,-11.532,1.0,0.0383,0.842,1.3e-06,0.0948,0.268,179.947,4.0,211813.0,False,D,major,D major,exile exile cardigan betty mirrorball august cardigan exile betty mirrorball love you the love and the the we we you I you we the you and we love and love,Folklore,3.2509652509652507,0.083884,0.8078000000000001,4.0,-0.8037,0.0,0.598,0.402,0.9571,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,Lover
+evermore,False,2020-12-11,1.0,willow,Taylor Swift,2020-12-11,0.392,0.574,7.0,-9.195,1.0,0.17,0.833,0.00179,0.145,0.529,81.112,4.0,214707.0,False,G,major,G major,"I'm like the water when your ship rolled in that night
+Rough on the surface, but you cut through like a knife
+And if it was an open-shut case
+I never would've known from that look on your face
+Lost in your current like a priceless wine
+The more that you say, the less I know
+Wherever you stray, I follow
+I'm begging for you to take my hand
+Wreck my plans, that's my man
+Life was a willow and it bent right to your wind
+Head on the pillow, I could feel you sneakin' in
+As if you were a mythical thing
+Like you were a trophy or a champion ring
+And there was one prize I'd cheat to win
+The more that you say, the less I know
+Wherever you stray, I follow
+I'm begging for you to take my hand
+Wreck my plans, that's my man
+You know that my train could take you home
+Anywhere else is hollow
+I'm begging for you to take my hand
+Wreck my plans, that's my man
+Life was a willow and it bent right to your wind
+They count me out time and time again
+Life was a willow and it bent right to your wind
+But I come back stronger than a '90s trend
+Wait for the signal, and I'll meet you after dark
+Show me the places where the others gave you scars
+Now this is an open-shut case
+I guess I should've known from the look on your face
+Every bait-and-switch was a work of art
+The more that you say, the less I know
+Wherever you stray, I follow
+I'm begging for you to take my hand
+Wreck my plans, that's my man
+You know that my train could take you home
+Anywhere else is hollow
+I'm begging for you to take my hand
+Wreck my plans, that's my man
+The more that you say, the less I know
+Wherever you stray, I follow
+I'm begging for you to take my hand
+Wreck my plans, that's my man
+You know that my train could take you home
+Anywhere else is hollow
+I'm begging for you to take my hand
+Wreck my plans, that's my man
+Hey, that's my man
+That's my man
+Yeah, that's my man
+Every bait-and-switch was a work of art
+That's my man
+Hey, that's my man
+I'm begging for you to take my hand
+Wreck my plans, that's my man",Evermore,1.4486956521739132,0.20736800000000002,0.84675,0.0,-0.6629999999999999,0.087,0.768,0.145,0.9829,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,Folklore
+evermore,False,2020-12-11,2.0,champagne problems,Taylor Swift,2020-12-11,0.462,0.24,0.0,-12.077,1.0,0.0377,0.92,0.0,0.113,0.32,171.319,4.0,244000.0,True,C,major,C major,"You booked the night train for a reason
+So you could sit there in this hurt
+Bustling crowds or silent sleepers
+You're not sure which is worse
+Because I dropped your hand while dancing
+Left you out there standing
+Crestfallen on the landing
+Champagne problems
+Your mom's ring in your pocket
+My picture in your wallet
+Your heart was glass, I dropped it
+Champagne problems
+You told your family for a reason
+You couldn't keep it in
+Your sister splashed out on the bottle
+Now no one's celebrating
+Dom Pérignon, you brought it
+No crowd of friends applauded
+Your hometown skeptics called it
+Champagne problems
+You had a speech, you're speechless
+Love slipped beyond your reaches
+And I couldn't give a reason
+Champagne problems
+Your Midas touch on the Chevy door
+November flush and your flannel cure
+""This dorm was once a madhouse""
+I made a joke, ""Well, it's made for me""
+How evergreen, our group of friends
+Don't think we'll say that word again
+And soon they'll have the nerve to deck the halls
+That we once walked through
+One for the money, two for the show
+I never was ready so I watch you go
+Sometimes you just don't know the answer
+'Til someone's on their knees and asks you
+""She would've made such a lovely bride
+What a shame she's fucked in the head,"" they said
+But you'll find the real thing instead
+She'll patch up your tapestry that I shred
+And hold your hand while dancing
+Never leave you standing
+Crestfallen on the landing
+With champagne problems
+Your mom's ring in your pocket
+Her picture in your wallet
+You won't remember all my
+Champagne problems
+You won't remember all my
+Champagne problems",Evermore,3.8174273858921164,0.14784,0.7987166666666667,4.0,-0.8823000000000001,0.133,0.746,0.122,-0.6667,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,Folklore
+evermore,False,2020-12-11,3.0,gold rush,Taylor Swift,2020-12-11,0.512,0.462,9.0,-10.491,1.0,0.0408,0.83,0.166,0.121,0.353,112.05,4.0,185320.0,True,A,major,A major,"Gleaming, twinkling
+Eyes like sinking
+Ships on waters
+So inviting, I almost jump in
+But I don't like a gold rush, gold rush
+I don't like anticipatin' my face in a red flush
+I don't like that anyone would die to feel your touch
+Everybody wants you
+Everybody wonders what it would be like to love you
+Walk past, quick brush
+I don't like slow motion, double vision in rose blush
+I don't like that falling feels like flying 'til the bone crush
+Everybody wants you
+But I don't like a gold rush
+What must it be like to grow up that beautiful?
+With your hair falling into place like dominoes
+I see me padding across your wooden floors
+With my Eagles T-shirt hanging from the door
+At dinner parties, I call you out on your contrarian shit
+And the coastal town we wandered 'round had nеver seen a love as pure as it
+And thеn it fades into the gray of my day-old tea
+'Cause it could never be
+'Cause I don't like a gold rush, gold rush
+I don't like anticipatin' my face in a red flush
+I don't like that anyone would die to feel your touch
+Everybody wants you
+Everybody wonders what it would be like to love you
+Walk past, quick brush
+I don't like slow motion, double vision in rose blush
+I don't like that falling feels like flying 'til the bone crush
+Everybody wants you
+But I don't like a gold rush
+What must it be like to grow up that beautiful?
+With your hair falling into place like dominoes
+My mind turns your life into folklore
+I can't dare to dream about you anymore
+At dinner parties, I won't call you out on your contrarian shit
+And the coastal town we never found will never see a love as pure as it
+'Cause it fades into the gray of my day-old tea
+'Cause it will never be
+Gleaming, twinkling
+Eyes like sinking
+Ships on waters
+So inviting, I almost jump in",Evermore,1.792656587473002,0.18073599999999998,0.82515,2.0,-0.7891999999999999,0.062,0.634,0.303,0.9985,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,Folklore
+evermore,False,2020-12-11,4.0,'tis the damn season,Taylor Swift,2020-12-11,0.575,0.434,5.0,-8.193,1.0,0.0312,0.735,6.59e-05,0.105,0.348,145.916,4.0,229840.0,False,F,major,F major,evermore evermore willow willow willow gold champagne evermore willow ivy the love love you and you the the the you I we the the you you you love we love,Evermore,1.6896551724137931,0.20009999999999997,0.86345,3.0,-0.7038,0.0,0.558,0.442,0.9638,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,Folklore
+evermore,False,2020-12-11,5.0,tolerate it,Taylor Swift,2020-12-11,0.316,0.361,9.0,-10.381,1.0,0.0488,0.878,2.67e-05,0.0797,0.221,74.952,5.0,245440.0,True,A,major,A major,"I sit and watch you readin' with your head low
+I wake and watch you breathin' with your eyes closed
+I sit and watch you
+I notice everything you do or don't do
+You're so much older and wiser, and I
+I wait by the door like I'm just a kid
+Use my best colors for your portrait
+Lay the table with the fancy shit
+And watch you tolerate it
+If it's all in my head, tell me now
+Tell me I've got it wrong somehow
+I know my love should be celebrated
+But you tolerate it
+I greet you with a battle hero's welcome
+I take your indiscretions all in good fun
+I sit and listеn
+I polish plates until they gleam and glistеn
+You're so much older and wiser, and I
+I wait by the door like I'm just a kid
+Use my best colors for your portrait
+Lay the table with the fancy shit
+And watch you tolerate it
+If it's all in my head, tell me now
+Tell me I've got it wrong somehow
+I know my love should be celebrated
+But you tolerate it
+While you were out buildin' other worlds, where was I?
+Where's that man who'd throw blankets over my barbed wire?
+I made you my temple, my mural, my sky
+Now I'm beggin' for footnotes in the story of your life
+Drawin' hearts in the byline
+Always takin' up too much space or time
+You assume I'm fine, but what would you do if I (I)
+Break free and leave us in ruins?
+Took this dagger in me and removed it
+Gain the weight of you, then lose it
+Believe me, I could do it
+If it's all in my head, tell me now
+Tell me I've got it wrong somehow
+I know my love should be celebrated
+But you tolerate it
+I sit and watch you",Evermore,2.425414364640884,0.069836,0.8269833333333333,0.0,-0.8292,0.085,0.72,0.195,0.9924,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,Folklore
+evermore,False,2020-12-11,6.0,"no body, no crime",Taylor Swift,2020-12-11,0.546,0.613,7.0,-7.589,0.0,0.0264,0.418,0.0,0.103,0.535,79.015,4.0,215627.0,False,G,minor,G minor,gold gold evermore ivy willow champagne champagne willow ivy gold the love the the and we we you love we the love the I the you we I we you,Evermore,0.6807817589576547,0.29211000000000004,0.8735166666666667,0.0,-0.3916,0.0,0.575,0.425,0.9517,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,Lover
+evermore,False,2020-12-11,7.0,happiness,Taylor Swift,2020-12-11,0.559,0.334,11.0,-10.733,1.0,0.0376,0.87,0.0,0.114,0.211,122.079,4.0,315147.0,True,B,major,B major,"Honey, when I'm above the trees
+I see this for what it is
+But now I'm right down in it, all the years I've given
+Is just shit we're dividin' up
+Showed you all of my hiding spots
+I was dancing when the music stopped
+And in the disbelief, I can't face reinvention
+I haven't met the new me yet
+There'll be happiness after you
+But there was happiness because of you
+Both of these things can be true
+There is happiness
+Past the blood and bruise
+Past the curses and cries
+Beyond the terror in the nightfall
+Haunted by the look in my eyes
+That would've loved you for a lifetime
+Leave it all behind
+And there is happiness
+Tell me, when did your winning smile
+Begin to look like a smirk?
+When did all our lessons start to look like weapons
+Pointed at my deepest hurt?
+I hope she'll be a beautiful fool
+Who takes my spot next to you
+No, I didn't mean that
+Sorry, I can't see facts through all of my fury
+You haven't met the new me yet
+There'll be happiness after me
+But there was happiness because of me
+Both of these things, I believe
+There is happiness
+In our history, across our great divide
+There is a glorious sunrise
+Dappled with the flickers of light
+From the dress I wore at midnight, leave it all behind
+And there is happiness
+I can't make it go away by making you a villain
+I guess it's the price I paid for seven years in Heaven
+And I pulled your body into mine
+Every goddamn night, now I get fake niceties
+No one teaches you what to do
+When a good man hurts you
+And you know you hurt him too
+Honey, when I'm above the trees
+I see it for what it is
+But now my eyes leak acid rain on the pillow where you used to lay your head
+After giving you the best I had
+Tell me what to give after that
+All you want from me now is the green light of forgiveness
+You haven't met the new me yet
+And I think she'll give you that
+There'll be happiness after you
+But there was happiness because of you too
+Both of these things can be true
+There is happiness
+In our history, across our great divide
+There is a glorious sunrise
+Dappled with the flickers of light
+From the dress I wore at midnight, leave it all behind
+Oh, leave it all behind
+Leave it all behind
+And there is happiness",Evermore,2.5970149253731343,0.11794900000000001,0.8211166666666666,2.0,-0.8324,0.135,0.613,0.253,0.9977,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,Folklore
+evermore,False,2020-12-11,8.0,dorothea,Taylor Swift,2020-12-11,0.605,0.488,4.0,-8.322,1.0,0.0264,0.696,0.0,0.129,0.354,119.966,4.0,225880.0,False,E,major,E major,"Hey, Dorothea, do you ever stop and think about me?
+When we were younger, down in the park
+Honey, makin' a lark of the misery
+You got shiny friends since you left town
+A tiny screen's the only place I see you now
+And I got nothin' but well wishes for ya
+Ooh
+This place is the same as it ever was
+Ooh
+But you won't like it that way
+It's never too late to come back to my side
+The stars in your eyes shined brighter in Tupelo
+And if you're ever tired of bеin' known for who you know
+You know that you'll always know me
+Dorothea, uh-uh
+Dorothea, ah-ah
+Ooh
+You'rе a queen sellin' dreams, sellin' makeup and magazines
+Ooh
+From you, I'd buy anything
+Hey, Dorothea, do you ever stop and think about me?
+When it was calmer, skippin' the prom
+Just to piss off your mom and her pageant schemes
+And damn, Dorothea, they all wanna be ya
+But are you still the same soul I met under the bleachers? Well
+Ooh
+I guess I'll never know
+Ooh
+And you'll go on with the show
+But it's never too late to come back to my side
+The stars in your eyes shined brighter in Tupelo
+And if you're ever tired of bein' known for who you know
+You know, you'll always know me
+Dorothea, uh-uh
+Dorothea, ah-ah
+Ooh, ooh
+Ooh-woo-ooh-ooh-ooh, ooh-ooh-ooh-ooh
+Ooh, ooh
+Ooh-woo-ooh-ooh-ooh, ooh-ooh-ooh
+Dorothea (Ah-ah-ah)
+Ah-ah
+Ooh",Evermore,1.4233128834355828,0.21416999999999997,0.8613,2.0,-0.6696,0.092,0.823,0.085,-0.4414,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,Folklore
+evermore,False,2020-12-11,9.0,coney island,Taylor Swift,2020-12-11,0.537,0.537,8.0,-11.266,1.0,0.0617,0.819,0.000904,0.142,0.292,107.895,4.0,275320.0,False,G#,major,G# major,ivy gold ivy champagne evermore champagne gold champagne champagne willow we I and you and love I you we you we you and you we love and love I love,Evermore,1.5223048327137545,0.156804,0.8122333333333334,1.0,-0.7573,0.0,0.426,0.574,0.9766,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,1.0,Lover
+evermore,False,2020-12-11,10.0,ivy,Taylor Swift,2020-12-11,0.515,0.545,2.0,-9.277,1.0,0.0353,0.855,1.97e-05,0.0921,0.535,88.856,4.0,260440.0,True,D,major,D major,"How's one to know?
+I'd meet you where the spirit meets the bones
+In a faith-forgotten land
+In from the snow
+Your touch brought forth an incandescent glow
+Tarnished but so grand
+And the old widow goes to the stone every day
+But I don't, I just sit here and wait
+Grieving for the living
+Oh, goddamn
+My pain fits in the palm of your freezing hand
+Taking mine, but it's been promised to another
+Oh, I can't
+Stop you putting roots in my dreamland
+My house of stone, your ivy grows
+And now I'm covered in you
+I wish to know
+The fatal flaw that makes you long to be
+Magnificently cursed
+He's in the room
+Your opal eyes are all I wish to see
+He wants what's only yours
+Oh, goddamn
+My pain fits in the palm of your freezing hand
+Taking mine, but it's been promised to another
+Oh, I can't
+Stop you putting roots in my dreamland
+My house of stone, your ivy grows
+And now I'm covered
+Clover blooms in the fields
+Spring breaks loose, the time is near
+What would he do if he found us out?
+Crescent moon, coast is clear
+Spring breaks loose, but so does fear
+He's gonna burn this house to the ground
+How's one to know?
+I'd live and die for moments that we stole
+On begged and borrowed time
+So tell me to run
+Or dare to sit and watch what we'll become
+And drink my husband's wine
+Oh, goddamn
+My pain fits in the palm of your freezing hand
+Taking mine, but it's been promised to another
+Oh, I can't
+Stop you putting roots in my dreamland
+My house of stone, your ivy grows
+And now I'm covered in you
+And I'm covered in you
+So yeah, it's a fire
+It's a goddamn blaze in the dark
+And you started it
+You started it
+So yeah, it's a war
+It's the goddamn fight of my life
+And you started it
+You started it
+Oh, I can't
+Stop you putting roots in my dreamland
+My house of stone, your ivy grows
+And now I'm covered
+In you, in you
+Now I'm covered in you
+In you",Evermore,1.5659340659340657,0.275525,0.8453833333333333,0.0,-0.8197,0.169,0.696,0.135,-0.9615,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,Folklore
+evermore,False,2020-12-11,11.0,cowboy like me,Taylor Swift,2020-12-11,0.604,0.517,0.0,-9.014,1.0,0.0347,0.768,0.000155,0.123,0.511,127.967,4.0,275040.0,True,C,major,C major,"And the tennis court was covered up
+With some tent-like thing
+And you asked me to dance
+But I said, ""Dancin' is a dangerous game""
+Oh, I thought
+This is gonna be one of those things
+Now I know
+I'm never gonna love again
+I've got some tricks up my sleeve
+Takes one to know one
+You're a cowboy like me
+Never wanted love
+Just a fancy car
+Now I'm waiting by the phone
+Like I'm sitting in an airport bar
+You had some tricks up your sleeve
+Takes one to know one
+You're a cowboy like me
+Perched in the dark
+Tellin' all the rich folks anything they wanna hear
+Like it could be love
+I could be the way forward
+Only if they pay for it
+You're a bandit like me
+Eyes full of stars
+Hustling for the good life, never thought I'd meet you here
+It could be love
+We could be the way forward
+And I know I'll pay for it
+You're a cowboy like me
+Perched in the dark
+Tellin' all the rich folks anything they wanna hear
+Like it could be love
+I could be the way forward
+Only if they pay for it
+You're a bandit like me
+Eyes full of stars
+Hustlin' for the good life, never thought I'd meet you here
+It could be love
+We could be the way forward
+And I know I'll pay for it
+And the skeletons in both our closets
+Plotted hard to fuck this up
+And the old men that I've swindled
+Really did believe I was the one
+And the ladies lunchin' have their stories about
+When you passed through town
+Oh, but that was all before I locked it down
+Now you hang from my lips
+Like the Gardens of Babylon
+With your boots beneath my bed
+Forever is the sweetest con
+I've had some tricks up my sleeve
+Takes one to know one
+You're a cowboy like me
+And I'm never gonna love again
+I'm never gonna love again
+I'm never gonna love again",Evermore,1.4826254826254825,0.308644,0.8497666666666668,2.0,-0.7333000000000001,0.156,0.721,0.123,-0.9025,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,Folklore
+evermore,False,2020-12-11,12.0,long story short,Taylor Swift,2020-12-11,0.546,0.73,0.0,-7.704,1.0,0.0417,0.66,0.179,0.0972,0.573,157.895,4.0,215920.0,False,C,major,C major,"Fatefully
+I tried to pick my battles 'til the battle picked me
+Misery
+Like the war of words I shouted in my sleep
+And you passed right by
+I was in the alley, surrounded on all sides
+The knife cuts both ways
+If the shoe fits, walk in it 'til your high heels break
+And I fell from the pedestal
+Right down the rabbit hole
+Long story short, it was a bad time
+Pushed from the precipice
+Clung to the nearest lips
+Long story short, it was the wrong guy
+Now I'm all about you
+I'm all about you, ah
+Yeah, yeah
+I'm all about you, ah
+Yeah, yeah
+Actually
+I always felt I must look better in the rear view
+Missing me
+At the golden gates they once held the keys to
+When I dropped my sword
+I threw it in the bushes and knocked on your door
+And we live in peace
+But if someone comes at us, this time, I'm ready
+'Cause I fell from the pedestal
+Right down the rabbit hole
+Long story short, it was a bad time
+Pushed from the precipice
+Clung to the nearest lips
+Long story short, it was the wrong guy
+Now I'm all about you
+I'm all about you, ah
+Yeah, yeah
+I'm all about you
+No more keepin' score
+Now I just keep you warm (Keep you warm)
+No more tug of war
+Now I just know there's more (Know there's more)
+No more keepin' score
+Now I just keep you warm (Keep you warm)
+And my waves meet your shore
+Ever and evermore
+Past me
+I wanna tell you not to get lost in these petty things
+Your nemeses
+Will defeat themselves before you get the chance to swing
+And he's passing by
+Rare as the glimmer of a comet in the sky
+And he feels like home
+If the shoe fits, walk in it everywhere you go
+And I fell from the pedestal
+Right down the rabbit hole
+Long story short, it was a bad time
+Pushed from the precipice
+Climbed right back up the cliff
+Long story short, I survived
+Now I'm all about you
+(And now) I'm all about you, ah
+(And now) I'm all about you
+(And now) I'm all about you, ah
+Yeah, yeah
+I'm all about you
+(And now) Yeah, yeah
+I'm all about you
+Long story short, it was a bad time
+Long story short, I survived",Evermore,0.9028727770177839,0.312858,0.8716,3.0,-0.6183000000000001,0.119,0.761,0.119,-0.6196,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,Folklore
+evermore,False,2020-12-11,13.0,marjorie,Taylor Swift,2020-12-11,0.535,0.561,5.0,-11.609,1.0,0.0484,0.876,0.000136,0.115,0.287,96.103,4.0,257773.0,False,F,major,F major,"Never be so kind
+You forget to be clever
+Never be so clever
+You forget to be kind
+And if I didn't know better
+I'd think you were talking to me now
+If I didn't know better
+I'd think you were still around
+What died didn't stay dead
+What died didn't stay dead
+You're alive, you're alive in my head
+What died didn't stay dead
+What died didn't stay dead
+You're alive, so alive
+Never be so politе
+You forget your power
+Nevеr wield such power
+You forget to be polite
+And if I didn't know better
+I'd think you were listening to me now
+If I didn't know better
+I'd think you were still around
+What died didn't stay dead
+What died didn't stay dead
+You're alive, you're alive in my head
+What died didn't stay dead
+What died didn't stay dead
+You're alive, so alive
+The autumn chill that wakes me up
+You loved the amber skies so much
+Long limbs and frozen swims
+You'd always go past where our feet could touch
+And I complained the whole way there
+The car ride back and up the stairs
+I should've asked you questions
+I should've asked you how to be
+Asked you to write it down for me
+Should've kept every grocery store receipt
+'Cause every scrap of you would be taken from me
+Watched as you signed your name Marjorie
+All your closets of backlogged dreams
+And how you left them all to me
+What died didn't stay dead
+What died didn't stay dead
+You're alive, you're alive in my head
+What died didn't stay dead
+What died didn't stay dead
+You're alive, so alive
+And if I didn't know better
+I'd think you were singing to me now
+If I didn't know better
+I'd think you were still around
+I know better
+But I still feel you all around
+I know better
+But you're still around",Evermore,1.5587188612099643,0.153545,0.8065166666666667,1.0,-0.8276,0.139,0.692,0.169,0.8446,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,Folklore
+evermore,False,2020-12-11,14.0,closure,Taylor Swift,2020-12-11,0.689,0.704,9.0,-10.813,1.0,0.245,0.835,4.83e-06,0.134,0.92,151.884,5.0,180653.0,False,A,major,A major,"It's been a long time
+And seeing the shape of your name
+Still spells out pain
+It wasn't right
+The way it all went down
+Looks like you know that now
+Yes, I got your letter
+Yes, I'm doing better
+It cut deep to know ya, right to the bone
+Yes, I got your letter
+Yes, I'm doing better
+I know that it's over, I don't need your
+Closure, your closure
+Don't treat me like
+Some situation that needs to be handled
+I'm fine with my spite
+And my tears and my beers and my candles
+I can feel you smoothing me over
+Yes, I got your letter
+Yes, I'm doing bettеr
+It cut deep to know ya, right to the bone
+Yes, I got your lеtter
+Yes, I'm doing better
+I know that it's over, I don't need your
+Closure, your closure
+Your closure, your closure
+I know I'm just a wrinkle in your new life
+Staying friends would iron it out so nice
+Guilty, guilty, reaching out across the sea
+That you put between you and me
+But it's fake and it's oh-so unnecessary
+Yes, I got your letter
+Yes, I'm doing better
+It cut deep to know ya, right to the bone
+Yes, I got your letter
+Yes, I'm doing better
+I know that it's over, I don't need your
+Closure, closure, your closure
+Your closure",Evermore,1.1843971631205674,0.63388,0.8197833333333333,3.0,-0.59,0.084,0.707,0.209,0.9794,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,1.0,Folklore
+evermore,False,2020-12-11,16.0,right where you left me,Taylor Swift,2020-12-11,0.581,0.619,10.0,-6.524,1.0,0.0282,0.769,0.000106,0.117,0.645,137.915,4.0,245027.0,False,A#,major,A# major,evermore champagne willow ivy willow willow ivy ivy ivy willow love the and and I the you and I I we the you love I the I the and I,Evermore,1.2403225806451614,0.374745,0.8912666666666667,3.0,-0.7408,0.0,0.665,0.335,0.891,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,1.0,Lover
+evermore,False,2020-12-11,17.0,it's time to go,Taylor Swift,2020-12-11,0.592,0.41,0.0,-12.426,1.0,0.0397,0.801,1.39e-05,0.09,0.416,151.923,4.0,254640.0,False,C,major,C major,willow champagne gold evermore champagne willow evermore willow gold ivy love the we the we the love I love we the you we we the you the I we you,Evermore,1.9489051094890513,0.24627199999999996,0.7928999999999999,3.0,-0.7613000000000001,0.0,0.575,0.425,0.9517,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,Lover
+Midnights,False,2022-10-21,14.0,The Great War,Taylor Swift,2022-10-21,0.573,0.741,5.0,-8.987,1.0,0.0353,0.219,2.23e-05,0.0842,0.554,96.016,4.0,240356.0,False,F,major,F major,karma midnight midnight anti-hero haze haze midnight anti-hero karma karma the you the I I love I you you the I and I I we you and we the and,Midnights,0.29514824797843664,0.317442,0.8502166666666666,1.0,-0.1837,0.0,0.846,0.154,0.6369,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1989
+Midnights,False,2022-10-21,15.0,Bigger Than The Whole Sky,Taylor Swift,2022-10-21,0.422,0.235,6.0,-12.379,1.0,0.0568,0.826,0.00648,0.115,0.068,165.71,4.0,218503.0,False,F#,major,F# major,bejeweled anti-hero haze midnight anti-hero anti-hero anti-hero haze haze anti-hero love love you we love you I the I I love we we I I you you and we I,Midnights,3.5,0.028696000000000003,0.7936833333333334,4.0,-0.7692,0.0,0.543,0.457,0.9571,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,Lover
+Midnights,False,2022-10-21,16.0,Paris,Taylor Swift,2022-10-21,0.7,0.509,7.0,-10.547,1.0,0.0789,0.112,3.27e-05,0.137,0.345,110.947,4.0,196259.0,False,G,major,G major,anti-hero haze bejeweled bejeweled karma midnight anti-hero anti-hero bejeweled karma love love we I you love and we I you I I you love love the we love love love,Midnights,0.2196078431372549,0.24149999999999996,0.8242166666666667,2.0,-0.033100000000000004,0.0,0.349,0.651,0.9887,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,Lover
+Midnights,False,2022-10-21,17.0,High Infidelity,Taylor Swift,2022-10-21,0.646,0.529,10.0,-10.179,1.0,0.0864,0.723,0.0,0.0885,0.755,87.862,4.0,231475.0,False,A#,major,A# major,bejeweled anti-hero bejeweled bejeweled karma karma karma midnight midnight karma the we love you and the and we and we we I you we I and we and you the,Midnights,1.3641509433962262,0.48773,0.8303499999999999,0.0,-0.6365999999999999,0.0,0.865,0.135,0.6369,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,1.0,Lover
+Midnights,False,2022-10-21,18.0,Glitch,Taylor Swift,2022-10-21,0.675,0.466,11.0,-9.738,0.0,0.201,0.361,0.0,0.11,0.347,140.864,4.0,148781.0,False,B,minor,B minor,anti-hero karma anti-hero anti-hero anti-hero haze haze midnight haze karma and love you the I we and the I and and we we the you you we love I you,Midnights,0.7730192719486081,0.234225,0.8377,3.0,-0.15999999999999998,0.0,0.749,0.251,0.8555,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,0.0,Lover
+Midnights,False,2022-10-21,19.0,"Would've, Could've, Should've",Taylor Swift,2022-10-21,0.483,0.84,7.0,-6.508,1.0,0.119,0.43,0.000575,0.146,0.55,157.979,4.0,260362.0,False,G,major,G major,bejeweled midnight karma anti-hero midnight karma midnight karma midnight bejeweled love and we love love we I I love and you love you I you love you we you the,Midnights,0.5112960760998811,0.26565,0.8915333333333333,3.0,-0.311,0.0,0.455,0.545,0.9803,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,1.0,1989
+Midnights,False,2022-10-21,20.0,Dear Reader,Taylor Swift,2022-10-21,0.562,0.388,0.0,-12.088,1.0,0.0705,0.481,0.00145,0.117,0.159,107.747,4.0,225194.0,False,C,major,C major,anti-hero karma anti-hero midnight karma anti-hero bejeweled midnight bejeweled anti-hero I we love and we we you love and I the I we I you I and you love the,Midnights,1.236503856041131,0.089358,0.7985333333333333,1.0,-0.4105,0.0,0.636,0.364,0.9274,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,Lover
+Midnights,False,2022-10-21,14.0,Hits Different,Taylor Swift,2022-10-21,0.5890084033613445,0.5770840336134454,4.676470588235294,-7.364197478991597,0.9159663865546218,0.0535172268907562,0.2987187478991597,0.0033253801680672,0.1408903361344538,0.4078394957983193,124.03876470588236,3.974789915966386,237852.5924369748,,,,,bejeweled bejeweled anti-hero anti-hero midnight haze bejeweled midnight haze midnight you the the love I we love and I love we love and love the we the the love the,Midnights,0.5167393156180952,0.24022089024786383,0.87726337535014,2.0,-0.2452015210084035,0.0,0.466,0.534,0.9803,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1989
+Midnights,False,2022-10-21,15.0,"You're On Your Own, Kid (Strings Remix)",Taylor Swift,2022-10-21,0.5890084033613445,0.5770840336134454,4.676470588235294,-7.364197478991597,0.9159663865546218,0.0535172268907562,0.2987187478991597,0.0033253801680672,0.1408903361344538,0.4078394957983193,124.03876470588236,3.974789915966386,237852.5924369748,,,,,"Summer went away, still, the yearning stays
+I play it cool with the best of them
+I wait patiently, he's gonna notice me
+It's okay, we're the best of friends
+Anyway
+I hear it in your voice, you're smoking with your boys
+I touch my phone as if it's your face
+I didn't choose this town, I dream of getting out
+There's just one who could make me stay
+All my days
+From sprinkler splashes to fireplace ashes
+I waited ages to see you there
+I search the party of better bodies
+Just to learn that you never cared
+You're on your own, kid
+You always have been
+I see the great escape, so long, Daisy May
+I picked the petals, he loves me not
+Something different bloomed, writing in my room
+I play my songs in the parking lot
+I'll run away
+From sprinkler splashes to fireplace ashes
+I called a taxi to take me there
+I search the party of better bodies
+Just to learn that my dreams aren't rare
+You're on your own, kid
+You always have been
+From sprinkler splashes to fireplace ashes
+I gave my blood, sweat, and tears for this
+I hosted parties and starved my body
+Like I'd be saved by a perfect kiss
+The jokes weren't funny, I took the money
+My friends from home don't know what to say
+I looked around in a blood-soaked gown
+And I saw something they can't take away
+'Cause there were pages turned with the bridges burned
+Everything you lose is a step you take
+So, make the friendship bracelets, take the moment and taste it
+You've got no reason to be afraid
+You're on your own, kid
+Yeah, you can face this
+You're on your own, kid
+You always have been",Midnights,0.5167393156180952,0.24022089024786383,0.87726337535014,2.0,-0.2452015210084035,0.046,0.735,0.219,0.9946,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,Reputation
+Midnights,False,2022-10-21,16.0,Sweet Nothing (Piano Remix),Taylor Swift,2022-10-21,0.5890084033613445,0.5770840336134454,4.676470588235294,-7.364197478991597,0.9159663865546218,0.0535172268907562,0.2987187478991597,0.0033253801680672,0.1408903361344538,0.4078394957983193,124.03876470588236,3.974789915966386,237852.5924369748,,,,,"I spy with my little tired eye
+Tiny as a firefly
+A pebble that we picked up last July
+Down deep inside your pocket
+We almost forgot it
+Does it ever miss Wicklow sometimes?
+Ooh, ooh
+They said the end is comin'
+Everyone’s up to somethin'
+I find myself runnin' home to your sweet nothings
+Outside, they’re push and shovin'
+You're in the kitchen hummin'
+All that you ever wanted from me was sweet nothin'
+On the way home
+I wrote a poem
+You say, ""What a mind""
+This happens all the time
+Ooh, ooh
+'Causе they said the end is comin'
+Evеryone's up to somethin’
+I find myself runnin’ home to your sweet nothings
+Outside, they're push and shovin’
+You're in the kitchen hummin'
+All that you ever wanted from me was nothin'
+Industry disruptors and soul deconstructors
+And smooth-talking hucksters out glad-handing each other
+And the voices that implore, ""You should be doing more""
+To you, I can admit that I’m just too soft for all of it
+Ooh
+They said the end is comin'
+Everyone's up to somethin'
+I find myself runnin' home to your sweet nothings
+Outside, they're push and shovin'
+You're in the kitchen hummin'
+All that you ever wanted from me was sweet nothin'
+They said the end is comin' (They said the end is comin')
+Everyone's up to somethin' (Everyone's up to somethin')
+I find myself runnin' home to your sweet nothings
+Outside, they're push and shovin' (Outside, they're push and shovin')
+You're in the kitchen hummin' (You're in the kitchen hummin')
+All that you ever wanted from me was sweet nothin'",Midnights,0.5167393156180952,0.24022089024786383,0.87726337535014,2.0,-0.2452015210084035,0.015,0.902,0.083,0.9558,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,Reputation

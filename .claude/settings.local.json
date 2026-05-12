@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python dataset_builder.py)",
+      "Bash(python train.py)"
+    ]
+  }
+}
