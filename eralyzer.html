@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>eralyzer — multi-agent era classifier</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="eralyzer.css" />
+</head>
+<body>
+<div class="app">
+
+  <!-- 1. Header bar -->
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-dot"></span>
+      <span class="brand-name">eralyzer</span>
+      <span class="brand-sub">v0.4 · multi-agent era classifier</span>
+    </div>
+    <div class="status-pills">
+      <span class="pill" id="pill-audio">
+        <span class="pill-dot"></span><span class="pill-label">AUDIO AGENT</span><span class="pill-state" id="pill-audio-state">idle</span>
+      </span>
+      <span class="pill" id="pill-lyric">
+        <span class="pill-dot"></span><span class="pill-label">LYRIC AGENT</span><span class="pill-state" id="pill-lyric-state">idle</span>
+      </span>
+    </div>
+  </header>
+
+  <!-- 2. Input section -->
+  <section class="input-bar">
+    <div class="input-grid">
+      <label class="field field-search">
+        <span class="field-label">SONG</span>
+        <input id="song-input" type="text" placeholder="Song title + artist name" autocomplete="off" />
+      </label>
+      <label class="field field-demo">
+        <span class="field-label">TRY A DEMO SONG</span>
+        <select id="demo-select">
+          <option value="">— pick an era —</option>
+        </select>
+      </label>
+      <button id="run-btn" class="run-btn">
+        <span class="run-btn-label">Run Debate</span>
+        <span class="run-btn-arrow">→</span>
+      </button>
+    </div>
+    <div class="input-meta">
+      <div class="input-hint">
+        <span class="kbd">⏎</span> to run · demo dropdown fills the title field · debate halts at consensus
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Live stats bar -->
+  <section class="stats-bar">
+    <div class="stat">
+      <span class="stat-label">AUDIO CONFIDENCE</span>
+      <div class="stat-value">
+        <span id="stat-audio-pct" class="stat-num">—</span>
+        <div class="stat-bar"><div id="stat-audio-bar" class="stat-bar-fill stat-bar-audio"></div></div>
+      </div>
+    </div>
+    <div class="stat">
+      <span class="stat-label">LYRIC CONFIDENCE</span>
+      <div class="stat-value">
+        <span id="stat-lyric-pct" class="stat-num">—</span>
+        <div class="stat-bar"><div id="stat-lyric-bar" class="stat-bar-fill stat-bar-lyric"></div></div>
+      </div>
+    </div>
+    <div class="stat stat-round">
+      <span class="stat-label">ROUND</span>
+      <span id="stat-round" class="stat-round-num">0<span class="stat-round-total">/ —</span></span>
+    </div>
+    <div class="stat stat-fusion">
+      <span class="stat-label">FUSION MODE</span>
+      <div class="fusion-toggle" role="tablist">
+        <button class="fusion-opt is-active" data-fusion="late">LATE FUSION</button>
+        <button class="fusion-opt" data-fusion="early">EARLY FUSION</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Debate stage -->
+  <section class="debate-stage">
+    <article class="cli cli-audio" id="cli-audio">
+      <header class="cli-head">
+        <span class="cli-tag cli-tag-audio">● AUDIO AGENT</span>
+        <span class="cli-meta">spotify_features · gradient_boost · n=4096</span>
+      </header>
+      <div class="cli-body" id="cli-audio-body" aria-live="polite"></div>
+      <footer class="cli-foot">
+        <span class="cli-foot-label">model</span>
+        <span class="cli-foot-val">audio-xgb-v3.1</span>
+      </footer>
+    </article>
+
+    <div class="debate-divider" aria-hidden="true">
+      <span class="vs">VS</span>
+    </div>
+
+    <article class="cli cli-lyric" id="cli-lyric">
+      <header class="cli-head">
+        <span class="cli-tag cli-tag-lyric">● LYRIC AGENT</span>
+        <span class="cli-meta">tf-idf + bert-base · n=4096</span>
+      </header>
+      <div class="cli-body" id="cli-lyric-body" aria-live="polite"></div>
+      <footer class="cli-foot">
+        <span class="cli-foot-label">model</span>
+        <span class="cli-foot-val">lyric-bert-v2.4</span>
+      </footer>
+    </article>
+  </section>
+
+  <!-- 5. Final verdict card -->
+  <section class="verdict" id="verdict" hidden>
+    <div class="verdict-meta">
+      <span class="verdict-eyebrow">STACKING CLASSIFIER · FINAL VERDICT</span>
+      <span class="verdict-badge" id="verdict-badge">CONSENSUS</span>
+    </div>
+    <div class="verdict-headline">
+      <h2 class="verdict-era" id="verdict-era">—</h2>
+      <div class="verdict-conf">
+        <span class="verdict-conf-num" id="verdict-conf">—</span>
+        <span class="verdict-conf-label">stacking confidence</span>
+      </div>
+    </div>
+    <p class="verdict-reason" id="verdict-reason">—</p>
+    <div class="verdict-breakdown">
+      <div class="vb">
+        <span class="vb-label">AUDIO →</span>
+        <span class="vb-val" id="vb-audio">—</span>
+      </div>
+      <div class="vb">
+        <span class="vb-label">LYRIC →</span>
+        <span class="vb-val" id="vb-lyric">—</span>
+      </div>
+      <div class="vb">
+        <span class="vb-label">ROUNDS</span>
+        <span class="vb-val" id="vb-rounds">—</span>
+      </div>
+      <div class="vb">
+        <span class="vb-label">RUNTIME</span>
+        <span class="vb-val" id="vb-runtime">—</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Confusion matrix -->
+  <section class="matrix-wrap">
+    <header class="matrix-head">
+      <div class="matrix-title">
+        <h3>Confusion matrix</h3>
+        <p>Hold-out set, n=412 songs · audio agent solo · darker cells = more confusion</p>
+      </div>
+      <div class="matrix-legend">
+        <span class="ml-label">0%</span>
+        <div class="ml-grad" aria-hidden="true"></div>
+        <span class="ml-label">42%</span>
+      </div>
+    </header>
+    <div class="matrix" id="matrix"></div>
+    <div class="matrix-tooltip" id="matrix-tooltip" hidden></div>
+  </section>
+
+  <footer class="bottombar">
+    <span>eralyzer · built on 4,096 hand-labelled songs</span>
+    <span>last debate · <span id="last-ts">—</span></span>
+  </footer>
+
+</div>
+
+<script src="eralyzer-data.js"></script>
+<script src="eralyzer.js"></script>
+</body>
+</html>

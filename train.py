@@ -6,7 +6,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.model_selection import StratifiedKFold, cross_validate
 from sklearn.metrics import accuracy_score, classification_report, precision_recall_fscore_support
-from src.dataset_generator import create_mock_dataset
 from src.preprocessing import TextPreprocessor
 from src.model import MultimodalAudioLyricsModel, save_model, generate_confusion_matrix
 from src.topic_modeling import TopicModeler

@@ -5,6 +5,7 @@ import json
 import os
 from PIL import Image
 from src.model import load_model, MultimodalAudioLyricsModel
+from src.text_agent import TextAgent
 import plotly.graph_objects as go
 import time
 
@@ -75,6 +76,13 @@ Enter a song's lyrics and audio features below to predict which Era it belongs t
 @st.cache_resource
 def get_model():
     return load_model('model.pkl')
+
+@st.cache_resource
+def get_text_agent():
+    path = 'models/text_agent.pkl'
+    if not os.path.exists(path):
+        return None
+    return TextAgent.load(path)
 
 @st.cache_data
 def load_test_songs():
@@ -401,6 +409,60 @@ else:
                     st.divider()
                     st.markdown(f"**⚖️ Final Decision Layer:**")
                     st.warning(f"The meta-classifier aggregated both sub-model outputs to confirm **{pred_era}**. (Confidence: {max(probs.values()):.1%})")
+
+                # ── Text Agent (LLM) ─────────────────────────────────────────
+                text_agent = get_text_agent()
+                if text_agent is not None:
+                    st.markdown("### 🤖 Text Agent Analysis")
+                    with st.expander("View Text Agent Debate Argument", expanded=True):
+                        with st.spinner("Text Agent is analysing lyrics..."):
+                            ta_result = text_agent.predict_with_evidence(lyrics_input)
+
+                        ta_era = ta_result["predicted_era"]
+                        ta_probs = ta_result["probabilities"]
+                        ta_evidence = ta_result["evidence"]
+                        ta_reasoning = ta_result["reasoning"]
+
+                        col_ta1, col_ta2 = st.columns([1, 1])
+
+                        with col_ta1:
+                            st.markdown(f"**Text Agent Prediction:** `{ta_era}`")
+                            st.markdown("**Era Probabilities (Text Only)**")
+                            ta_prob_df = pd.DataFrame({
+                                "Era": list(ta_probs.keys()),
+                                "Probability": list(ta_probs.values())
+                            }).sort_values("Probability", ascending=False)
+                            st.bar_chart(ta_prob_df.set_index("Era"))
+
+                        with col_ta2:
+                            st.markdown("**Top Lyrical Keywords**")
+                            keywords = ta_evidence.get("top_keywords", [])
+                            if keywords:
+                                st.markdown(" · ".join(f"`{kw}`" for kw in keywords))
+
+                            st.markdown("**Dominant LDA Topic**")
+                            st.info(ta_evidence.get("dominant_topic", "N/A"))
+
+                            sentiment = ta_evidence.get("sentiment", {})
+                            st.markdown("**Sentiment Scores**")
+                            sent_col1, sent_col2, sent_col3 = st.columns(3)
+                            sent_col1.metric("Positive", f"{sentiment.get('pos', 0):.2f}")
+                            sent_col2.metric("Negative", f"{sentiment.get('neg', 0):.2f}")
+                            sent_col3.metric("Compound", f"{sentiment.get('compound', 0):.2f}")
+
+                        st.markdown("**Agent Reasoning (LLM-generated)**")
+                        st.success(ta_reasoning)
+
+                        st.markdown("**Topic Distribution**")
+                        topic_dist = ta_evidence.get("topic_distribution", {})
+                        if topic_dist:
+                            topic_df = pd.DataFrame({
+                                "Topic": list(topic_dist.keys()),
+                                "Weight": list(topic_dist.values())
+                            })
+                            st.bar_chart(topic_df.set_index("Topic"))
+                else:
+                    st.info("Text Agent not found. Run `python train_text_agent.py` to enable LLM-powered analysis.")
 
                 # ── Radar Chart ──────────────────────────────────────────────
                 st.markdown("#### 🌀 Stylistic Signature (Radar)")
