@@ -85,11 +85,12 @@ def main():
             df.iloc[train_idx],
             df["era"].iloc[train_idx].tolist()
         )
-        
+
         # Predict on validation fold
         fold_preds = []
         for _, row in df.iloc[val_idx].iterrows():
-            pred = fold_agent.predict_with_evidence(row.to_dict())["predicted_era"]
+            # Add use_llm=False here!
+            pred = fold_agent.predict_with_evidence(row.to_dict(), use_llm=False)["predicted_era"]
             fold_preds.append(pred)
             
         score = accuracy_score(df["era"].iloc[val_idx].tolist(), fold_preds)
@@ -112,7 +113,8 @@ def main():
     # Evaluate on Test Set
     y_true, y_pred = [], []
     for _, row in df_test.iterrows():
-        result = agent.predict_with_evidence(row.to_dict())
+        # Add use_llm=False here too!
+        result = agent.predict_with_evidence(row.to_dict(), use_llm=False)
         y_true.append(row["era"])
         y_pred.append(result["predicted_era"])
 

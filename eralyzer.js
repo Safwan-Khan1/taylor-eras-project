@@ -30,9 +30,44 @@
   /* ---------- fusion toggle ---------- */
   document.querySelectorAll(".fusion-opt").forEach((b) => {
     b.addEventListener("click", () => {
+      if (state.running) return; // Prevent switching while a debate is running
+
       document.querySelectorAll(".fusion-opt").forEach((x) => x.classList.remove("is-active"));
       b.classList.add("is-active");
       state.fusion = b.dataset.fusion;
+      
+      // FIX 1: Clear the screen and reset stats so old text doesn't linger!
+      clearCli();
+      $("verdict").hidden = true;
+      resetStats("—");
+      
+      // UI TRANSFORMATION LOGIC
+      const audioBox = $("cli-audio");
+      const divider = document.querySelector(".debate-divider");
+      const lyricBox = $("cli-lyric");
+      const lyricHeader = lyricBox.querySelector(".cli-tag-lyric");
+      const lyricMeta = lyricBox.querySelector(".cli-meta");
+      const lyricModel = lyricBox.querySelector(".cli-foot-val");
+
+      if (state.fusion === "early") {
+        audioBox.style.display = "none";
+        divider.style.display = "none";
+        lyricBox.style.gridColumn = "1 / -1"; 
+        lyricBox.style.width = "100%";
+        lyricHeader.textContent = "● EARLY FUSION MODEL";
+        lyricHeader.style.color = "var(--ink)";
+        lyricMeta.textContent = "tfidf + spotify_features · gradient_boost · n=4096";
+        lyricModel.textContent = "fusion-xgb-v1.0";
+      } else {
+        audioBox.style.display = "";
+        divider.style.display = "";
+        lyricBox.style.gridColumn = "";
+        lyricBox.style.width = "";
+        lyricHeader.textContent = "● LYRIC AGENT";
+        lyricHeader.style.color = "";
+        lyricMeta.textContent = "tf-idf + bert-base · n=4096";
+        lyricModel.textContent = "lyric-bert-v2.4";
+      }
     });
   });
 
@@ -90,11 +125,22 @@
     const body = $(panel === "audio" ? "cli-audio-body" : "cli-lyric-body");
     const existing = body.querySelector(".cli-cursor");
     if (existing) existing.remove();
+    
     const line = document.createElement("span");
     line.className = "cli-line" + (cls ? " " + cls : "");
-    const pfx = panel === "audio"
-      ? '<span class="prefix pfx-audio">[AUDIO]</span> '
-      : '<span class="prefix pfx-lyric">[LYRIC]</span> ';
+    
+    // FIX 2: Change the prefix based on the fusion mode
+    let pfx = "";
+    if (panel === "audio") {
+      pfx = '<span class="prefix pfx-audio">[AUDIO]</span> ';
+    } else {
+      if (state.fusion === "early") {
+        pfx = '<span class="prefix pfx-lyric" style="color:var(--ink)">[FUSION]</span> ';
+      } else {
+        pfx = '<span class="prefix pfx-lyric">[LYRIC]</span> ';
+      }
+    }
+    
     line.innerHTML = pfx + formatLine(text);
     body.appendChild(line);
     body.scrollTop = body.scrollHeight;
@@ -157,6 +203,10 @@
     if (demo.badge === "consensus") {
       badge.textContent = "CONSENSUS";
       badge.className   = "verdict-badge is-consensus";
+    } else if (demo.badge === "joint-inference") {
+      // FIX: Add support for our Early Fusion badge
+      badge.textContent = "JOINT INFERENCE";
+      badge.className   = "verdict-badge is-consensus"; // Reusing the green 'consensus' styling
     } else {
       badge.textContent = "ADJUDICATED";
       badge.className   = "verdict-badge is-adjudicated";
@@ -199,8 +249,13 @@
         setCursor("lyric", false);
         await sleep(250);
         appendDivider(step.text);
-        currentRound++;
-        setRound(currentRound);
+        
+        // FIX: Only increment rounds if we are in Late Fusion!
+        if (state.fusion !== "early" && step.text.includes("ROUND")) {
+            currentRound++;
+            setRound(currentRound);
+        }
+        
         await sleep(250);
         prevWho = null;
         continue;
@@ -260,7 +315,7 @@
       const res = await fetch(apiBase + "/debate", {
         method:  "POST",
         headers: { "Content-Type": "application/json" },
-        body:    JSON.stringify({ song_title: songTitle, artist: "Taylor Swift" }),
+        body:    JSON.stringify({ song_title: songTitle, artist: "Taylor Swift", fusion: state.fusion }),
       });
 
       const data = await res.json();
