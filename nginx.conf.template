@@ -14,15 +14,17 @@ http {
     server {
         listen PORT_PLACEHOLDER;
 
-        # FastAPI API routes — regex handles accidental double-slash (//debate)
+        # FastAPI API routes — rewrite normalizes accidental double-slash (//debate)
         location ~ ^/+debate {
-            proxy_pass http://localhost:8002/debate;
+            rewrite ^/+debate /debate break;
+            proxy_pass http://localhost:8002;
             proxy_set_header Host $host;
             proxy_set_header X-Real-IP $remote_addr;
         }
 
         location ~ ^/+status {
-            proxy_pass http://localhost:8002/status;
+            rewrite ^/+status /status break;
+            proxy_pass http://localhost:8002;
             proxy_set_header Host $host;
         }
 
