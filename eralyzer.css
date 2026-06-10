@@ -596,6 +596,7 @@ body {
 .matrix-panel {
   flex: 1;
   min-width: 0;
+  overflow: hidden;
 }
 .matrix-panel-label {
   font-family: var(--font-mono);
@@ -626,6 +627,7 @@ body {
 
 .matrix {
   display: grid;
+  width: 100%;
   grid-template-columns: 80px repeat(8, 1fr);
   gap: 2px;
   font-family: var(--font-mono);
