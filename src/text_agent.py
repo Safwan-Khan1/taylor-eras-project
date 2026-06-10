@@ -81,7 +81,7 @@ ERA_KEYWORDS = {
 class TextAgent:
     """NLP agent that classifies Taylor Swift lyrics into Eras using TF-IDF + era keyword features."""
 
-    def __init__(self, max_features=3000, C=1.5):
+    def __init__(self, max_features=3000, C=1.5, classifier=None):
         self.max_features = max_features
         self.C = C
         self.preprocessor = TextPreprocessor()
@@ -104,13 +104,16 @@ class TextAgent:
         )
         self.n_char_features_ = None
 
-        self.classifier = LogisticRegression(
-            C=self.C,
-            class_weight='balanced',
-            max_iter=2000,
-            random_state=42,
-            solver='lbfgs',
-        )
+        if classifier is not None:
+            self.classifier = classifier
+        else:
+            self.classifier = LogisticRegression(
+                C=self.C,
+                class_weight='balanced',
+                max_iter=2000,
+                random_state=42,
+                solver='lbfgs',
+            )
 
         self.w2v_model = None
         self.w2v_size = 100
@@ -386,9 +389,16 @@ IMPORTANT: Always end with a complete sentence. Do not trail off or use ellipsis
     def _extract_top_keywords(self, X_tfidf, predicted_era, n=8):
         feature_names = np.array(self.tfidf.get_feature_names_out())
         tfidf_weights = X_tfidf.toarray()[0]
-        era_idx = list(self.classes_).index(predicted_era)
-        clf_weights = self.classifier.coef_[era_idx, :self.n_tfidf_features_]
-        combined = tfidf_weights * np.maximum(clf_weights, 0)
+        if hasattr(self.classifier, 'coef_'):
+            era_idx = list(self.classes_).index(predicted_era)
+            clf_weights = self.classifier.coef_[era_idx, :self.n_tfidf_features_]
+            combined = tfidf_weights * np.maximum(clf_weights, 0)
+        elif hasattr(self.classifier, 'feature_importances_'):
+            # RF: use global feature importances (not per-class); slice to TF-IDF portion
+            importances = self.classifier.feature_importances_[:self.n_tfidf_features_]
+            combined = tfidf_weights * importances
+        else:
+            combined = tfidf_weights
         top_idx = combined.argsort()[::-1][:n]
         keywords = [feature_names[i] for i in top_idx if tfidf_weights[i] > 0]
         return keywords[:n]
