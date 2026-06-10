@@ -596,7 +596,6 @@ body {
 .matrix-panel {
   flex: 1;
   min-width: 0;
-  overflow: hidden;
 }
 .matrix-panel-label {
   font-family: var(--font-mono);
@@ -628,7 +627,7 @@ body {
 .matrix {
   display: grid;
   width: 100%;
-  grid-template-columns: 80px repeat(8, 1fr);
+  grid-template-columns: 60px repeat(8, minmax(0, 1fr));
   gap: 2px;
   font-family: var(--font-mono);
 }
@@ -636,7 +635,7 @@ body {
 .m-col-head {
   font-size: 10px;
   color: var(--ink-3);
-  padding: 6px 4px;
+  padding: 6px 2px;
   text-align: center;
   letter-spacing: 0.04em;
   border-bottom: 0.5px solid var(--line-soft);
@@ -645,17 +644,21 @@ body {
   justify-content: center;
   min-height: 36px;
   line-height: 1.1;
+  word-break: break-word;
+  overflow: hidden;
 }
 .m-row-head {
-  font-size: 10.5px;
+  font-size: 10px;
   color: var(--ink-2);
-  padding: 0 10px 0 4px;
+  padding: 0 6px 0 2px;
   text-align: right;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   border-right: 0.5px solid var(--line-soft);
   letter-spacing: 0.02em;
+  word-break: break-word;
+  overflow: hidden;
 }
 .m-cell {
   aspect-ratio: 1 / 1;
@@ -717,5 +720,4 @@ body {
   .debate-divider { display: none; }
   .verdict-breakdown { grid-template-columns: 1fr 1fr; }
   .matrix-grids { flex-direction: column; }
-  .matrix { grid-template-columns: 70px repeat(8, 1fr); }
 }
