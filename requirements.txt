@@ -22,7 +22,6 @@ spotipy==2.26.0
 lyricsgenius==3.11.0
 seaborn==0.13.2
 plotly==6.6.0
-pip-system-certs==5.3
 pydantic==2.13.4
 anyio==4.13.0
 starlette==1.0.0
