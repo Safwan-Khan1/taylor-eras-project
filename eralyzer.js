@@ -360,35 +360,45 @@
     $("run-btn").querySelector(".run-btn-label").textContent = "Run Debate";
   }
 
-  /* ---------- confusion matrix ---------- */
-  function buildMatrix() {
-    const wrap = $("matrix");
+  /* ---------- confusion matrices ---------- */
+  const _cmLabels = (typeof CM_LABELS !== "undefined" && CM_LABELS) ? CM_LABELS : ERAS.map(e => e.label);
+
+  function buildMatrix(wrapId, tipId, confusion, agentLabel) {
+    const wrap = $(wrapId);
+    if (!wrap) return;
     wrap.innerHTML = "";
-    wrap.style.gridTemplateColumns = "110px repeat(" + ERAS.length + ", 1fr)";
+
+    if (!confusion) {
+      wrap.innerHTML = '<div style="font-family:var(--font-mono);font-size:12px;color:var(--ink-3);padding:24px;">Train the model first to see the real confusion matrix.</div>';
+      return;
+    }
+
+    wrap.style.gridTemplateColumns = "110px repeat(" + _cmLabels.length + ", 1fr)";
 
     const corner = document.createElement("div");
     corner.className = "m-corner";
     corner.innerHTML = '<div style="font-family:var(--font-mono);font-size:9.5px;color:var(--ink-4);text-align:right;padding:0 8px 4px 0;line-height:1.2;">true ↓<br/>pred →</div>';
     wrap.appendChild(corner);
 
-    ERAS.forEach((e) => {
+    _cmLabels.forEach((label) => {
       const h = document.createElement("div");
       h.className  = "m-col-head";
-      h.textContent = e.label;
+      h.textContent = label;
       wrap.appendChild(h);
     });
 
+    const tip = $(tipId);
     const max = 0.42;
-    ERAS.forEach((rowEra, ri) => {
+    _cmLabels.forEach((rowLabel, ri) => {
       const rh = document.createElement("div");
       rh.className  = "m-row-head";
-      rh.textContent = rowEra.label;
+      rh.textContent = rowLabel;
       wrap.appendChild(rh);
 
-      ERAS.forEach((colEra, ci) => {
+      _cmLabels.forEach((colLabel, ci) => {
         const cell = document.createElement("div");
         cell.className = "m-cell" + (ri === ci ? " is-diag" : "");
-        const v = CONFUSION[ri][ci];
+        const v = confusion[ri][ci];
         const t = Math.min(1, v / max);
         const r = lerp(0xef, 0x1f, t);
         const g = lerp(0xee, 0x1d, t);
@@ -401,9 +411,22 @@
         }
         cell.dataset.row = ri;
         cell.dataset.col = ci;
-        cell.addEventListener("mouseenter", showTip);
-        cell.addEventListener("mousemove",  moveTip);
-        cell.addEventListener("mouseleave", hideTip);
+        cell.addEventListener("mouseenter", (e) => {
+          const row = +e.currentTarget.dataset.row;
+          const col = +e.currentTarget.dataset.col;
+          const val = confusion[row][col];
+          tip.textContent = row === col
+            ? `${_cmLabels[row]}: ${Math.round(val * 100)}% correctly classified`
+            : `${agentLabel} confused ${_cmLabels[row]} with ${_cmLabels[col]} in ${Math.round(val * 100)}% of cases`;
+          tip.hidden = false;
+          tip.style.left = (e.clientX + 14) + "px";
+          tip.style.top  = (e.clientY + 14) + "px";
+        });
+        cell.addEventListener("mousemove", (e) => {
+          tip.style.left = (e.clientX + 14) + "px";
+          tip.style.top  = (e.clientY + 14) + "px";
+        });
+        cell.addEventListener("mouseleave", () => { tip.hidden = true; });
         wrap.appendChild(cell);
       });
     });
@@ -411,29 +434,10 @@
 
   function lerp(a, b, t) { return Math.round(a + (b - a) * t); }
 
-  const tip = $("matrix-tooltip");
-  function showTip(e) {
-    const r = +e.currentTarget.dataset.row;
-    const c = +e.currentTarget.dataset.col;
-    const v = CONFUSION[r][c];
-    tip.textContent = r === c
-      ? `${ERAS[r].label}: ${Math.round(v * 100)}% correctly classified`
-      : `Audio agent confused ${ERAS[r].label} with ${ERAS[c].label} in ${Math.round(v * 100)}% of cases`;
-    tip.hidden = false;
-    moveTip(e);
-  }
-  function moveTip(e) {
-    tip.style.left = (e.clientX + 14) + "px";
-    tip.style.top  = (e.clientY + 14) + "px";
-  }
-  function hideTip() { tip.hidden = true; }
-
-  if (typeof CONFUSION !== "undefined" && CONFUSION !== null) {
-    buildMatrix();
-  } else {
-    const w = $("matrix");
-    if (w) w.innerHTML = '<div style="font-family:var(--font-mono);font-size:12px;color:var(--ink-3);padding:24px;">Train the model first to see the real confusion matrix.</div>';
-  }
+  const _confAudio = (typeof CONFUSION_AUDIO !== "undefined") ? CONFUSION_AUDIO : null;
+  const _confText  = (typeof CONFUSION_TEXT  !== "undefined") ? CONFUSION_TEXT  : null;
+  buildMatrix("matrix-audio", "matrix-audio-tooltip", _confAudio, "Audio agent");
+  buildMatrix("matrix-text",  "matrix-text-tooltip",  _confText,  "Lyrics agent");
 
   window.eralyzerRun = run;
 

@@ -184,7 +184,7 @@ const ERAS = {json.dumps(eras_list)};
 const DEMOS = {json.dumps(demos_list)};
 
 // Confusion matrices — hold-out test set (random_state=42), row-normalised fractions
-const CM_LABELS      = {cm8_labels_js};
+const CM_LABELS       = {cm8_labels_js};
 const CONFUSION_TEXT  = {confusion_text_js};
 const CONFUSION_AUDIO = {confusion_audio_js};
 

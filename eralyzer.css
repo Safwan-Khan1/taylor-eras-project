@@ -562,6 +562,16 @@ body {
 }
 
 /* ---------- matrix ---------- */
+.matrix-pair {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.matrix-pair .matrix-wrap {
+  flex: 1;
+  min-width: 0;
+  margin-top: 28px;
+}
 .matrix-wrap {
   margin-top: 28px;
   padding: 24px 26px 28px;
@@ -699,4 +709,5 @@ body {
   .debate-divider { display: none; }
   .verdict-breakdown { grid-template-columns: 1fr 1fr; }
   .matrix { grid-template-columns: 80px repeat(10, 1fr); }
+  .matrix-pair { flex-direction: column; }
 }

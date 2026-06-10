@@ -148,22 +148,39 @@
     </div>
   </section>
 
-  <!-- 6. Confusion matrix -->
-  <section class="matrix-wrap">
-    <header class="matrix-head">
-      <div class="matrix-title">
-        <h3>Confusion matrix</h3>
-        <p>Hold-out set, n=412 songs · audio agent solo · darker cells = more confusion</p>
-      </div>
-      <div class="matrix-legend">
-        <span class="ml-label">0%</span>
-        <div class="ml-grad" aria-hidden="true"></div>
-        <span class="ml-label">100%</span>
-      </div>
-    </header>
-    <div class="matrix" id="matrix"></div>
-    <div class="matrix-tooltip" id="matrix-tooltip" hidden></div>
-  </section>
+  <!-- 6. Confusion matrices -->
+  <div class="matrix-pair">
+    <section class="matrix-wrap">
+      <header class="matrix-head">
+        <div class="matrix-title">
+          <h3>Audio confusion matrix</h3>
+          <p>Hold-out set · audio agent solo · darker cells = more confusion</p>
+        </div>
+        <div class="matrix-legend">
+          <span class="ml-label">0%</span>
+          <div class="ml-grad" aria-hidden="true"></div>
+          <span class="ml-label">100%</span>
+        </div>
+      </header>
+      <div class="matrix" id="matrix-audio"></div>
+      <div class="matrix-tooltip" id="matrix-audio-tooltip" hidden></div>
+    </section>
+    <section class="matrix-wrap">
+      <header class="matrix-head">
+        <div class="matrix-title">
+          <h3>Lyrics confusion matrix</h3>
+          <p>Hold-out set · text agent solo · darker cells = more confusion</p>
+        </div>
+        <div class="matrix-legend">
+          <span class="ml-label">0%</span>
+          <div class="ml-grad" aria-hidden="true"></div>
+          <span class="ml-label">100%</span>
+        </div>
+      </header>
+      <div class="matrix" id="matrix-text"></div>
+      <div class="matrix-tooltip" id="matrix-text-tooltip" hidden></div>
+    </section>
+  </div>
 
   <footer class="bottombar">
     <span>eralyzer · multi-agent era classifier</span>
