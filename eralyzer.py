@@ -6,6 +6,7 @@
 # Run:  streamlit run eralyzer.py
 
 import json
+import os
 import pickle
 import re
 import sys
@@ -14,6 +15,9 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 import streamlit as st
+from dotenv import load_dotenv
+
+load_dotenv()
 
 BASE = Path(__file__).parent
 sys.path.insert(0, str(BASE))
@@ -54,63 +58,105 @@ ERA_ORDER = [
 ]
 
 # ── Cached resource loaders ───────────────────────────────────────────────────
+_ALBUM_ERA = {
+    "Taylor Swift":                        "Taylor Swift",
+    "Beautiful Eyes":                      "Taylor Swift",
+    "The Taylor Swift Holiday Collection": "Taylor Swift",
+    "Fearless":                            "Fearless",
+    "Fearless (Taylor's Version)":         "Fearless",
+    "Speak Now":                           "Speak Now",
+    "Red":                                 "Red",
+    "Red (Taylor's Version)":              "Red",
+    "1989":                                "1989",
+    "reputation":                          "Reputation",
+    "Lover":                               "Lover",
+    "folklore":                            "Folklore",
+}
+_TV_ALBUMS = {"Fearless (Taylor's Version)", "Red (Taylor's Version)"}
+_ERA_ORDER_8 = ["Taylor Swift", "Fearless", "Speak Now", "Red", "1989", "Reputation", "Lover", "Folklore"]
+
+def _load_lyric_testset():
+    """Return the held-out lyrics test DataFrame (same split as train_text_agent.py)."""
+    from sklearn.model_selection import train_test_split
+    csv_path = BASE / "TaylorSwiftEras" / "Data" / "Final" / "taylor_merged_df.csv"
+    df = pd.read_csv(csv_path)
+    original_titles = set(
+        df.loc[~df["album_name"].isin(_TV_ALBUMS), "track_name"].str.lower().str.strip()
+    )
+    df = df[
+        ~df["album_name"].isin(_TV_ALBUMS) |
+        ~df["track_name"].str.lower().str.strip().isin(original_titles)
+    ].copy()
+    df["era"]    = df["album_name"].map(_ALBUM_ERA)
+    df["lyrics"] = df["lyric"]
+    df = df.dropna(subset=["era", "lyrics"])
+    df = df[df["lyrics"].str.strip() != ""].reset_index(drop=True)
+    _, df_test = train_test_split(df, test_size=0.2, random_state=42, stratify=df["era"])
+    return df_test
+
+def _load_audio_testset():
+    """Return the held-out audio test DataFrame (same split as train_audio_agent.py)."""
+    from sklearn.model_selection import train_test_split
+    csv_path = BASE / "TaylorSwiftEras" / "Data" / "Final" / "taylor_merged_df.csv"
+    df = pd.read_csv(csv_path)
+    original_titles = set(
+        df.loc[~df["album_name"].isin(_TV_ALBUMS), "track_name"].str.lower().str.strip()
+    )
+    df = df[
+        ~df["album_name"].isin(_TV_ALBUMS) |
+        ~df["track_name"].str.lower().str.strip().isin(original_titles)
+    ].copy()
+    df["era"] = df["album_name"].map(_ALBUM_ERA)
+    df = df.dropna(subset=["era"]).reset_index(drop=True)
+    _, df_test = train_test_split(df, test_size=0.2, random_state=42, stratify=df["era"])
+    return df_test
+
 @st.cache_data
-def get_confusion_matrix_data():
-    """Return a 6×6 confusion matrix (list of lists) from the real model + test set."""
+def get_text_confusion_matrix_data():
+    """Return normalised 8×8 confusion matrix from the TextAgent on its held-out test set."""
     try:
-        from src.preprocessing import TextPreprocessor
         from sklearn.metrics import confusion_matrix
-
-        model_path = BASE / "model.pkl"
-        test_path  = BASE / "data" / "processed" / "test_dataset.csv"
-        if not model_path.exists() or not test_path.exists():
+        from src.text_agent import TextAgent
+        model_path = BASE / "models" / "text_agent.pkl"
+        if not model_path.exists():
             return None, None
-
-        with open(model_path, "rb") as f:
-            model = pickle.load(f)
-
-        df = pd.read_csv(test_path)
-        preprocessor = TextPreprocessor()
-        df["clean_lyrics"], sentiments = preprocessor.transform_with_features(df["lyrics"].tolist())
-        df = pd.concat([df, pd.DataFrame(sentiments, index=df.index)], axis=1)
-
-        # Feature engineering (matches train.py)
-        df["acoustic_energy_ratio"]  = df["acousticness"] / (df["energy"] + 0.001)
-        df["dance_valence_product"]  = df["danceability"] * df["valence"]
-        df["loudness_norm"]          = (df["loudness"] + 60) / 60
-        df["tempo_bin"] = pd.cut(
-            df["tempo"], bins=[0,90,110,130,160,250], labels=[0,1,2,3,4]
-        ).astype(float)
-        df["speech_acoustic_diff"]   = df["speechiness"] - df["acousticness"]
-        for k in range(12):
-            if f"key_{k}" not in df.columns: df[f"key_{k}"] = (df["key"] == k).astype(float)
-        for m in [0,1]:
-            if f"mode_{m}" not in df.columns: df[f"mode_{m}"] = (df["mode"] == m).astype(float)
-
-        audio_cols = [
-            "danceability","energy","loudness","speechiness",
-            "acousticness","instrumentalness","liveness","valence",
-            "tempo","duration_ms",
-            "acoustic_energy_ratio","dance_valence_product","loudness_norm",
-            "tempo_bin","speech_acoustic_diff",
-            "compound","pos","neg","neu",
-        ] + [f"key_{i}" for i in range(12)] + [f"mode_{i}" for i in range(2)]
-
-        X_audio = df[audio_cols].values
-        X_text  = df["clean_lyrics"].to_numpy(dtype=str)
-        y_true  = df["era"].to_numpy(dtype=str)
-
-        y_pred = model.predict(X_audio, X_text)
-        cm = confusion_matrix(y_true, y_pred, labels=ERA_ORDER)
-        # Normalise rows → fractions
+        agent   = TextAgent.load(str(model_path))
+        df_test = _load_lyric_testset()
+        y_true, y_pred = [], []
+        for _, row in df_test.iterrows():
+            result = agent.predict_with_evidence(row["lyrics"], use_llm=False)
+            y_true.append(row["era"])
+            y_pred.append(result["predicted_era"])
+        cm = confusion_matrix(y_true, y_pred, labels=_ERA_ORDER_8)
         row_sums = cm.sum(axis=1, keepdims=True).clip(min=1)
-        cm_norm  = (cm / row_sums).tolist()
-        return cm_norm, ERA_ORDER
-
-    except Exception as e:
+        return (cm / row_sums).tolist(), _ERA_ORDER_8
+    except Exception:
         return None, None
 
-cm_data, cm_labels = get_confusion_matrix_data()
+@st.cache_data
+def get_audio_confusion_matrix_data():
+    """Return normalised 8×8 confusion matrix from the AudioAgent on its held-out test set."""
+    try:
+        from sklearn.metrics import confusion_matrix
+        from src.audio_agent import AudioAgent
+        model_path = BASE / "models" / "audio_agent.pkl"
+        if not model_path.exists():
+            return None, None
+        agent   = AudioAgent.load(str(model_path))
+        df_test = _load_audio_testset()
+        y_true, y_pred = [], []
+        for _, row in df_test.iterrows():
+            result = agent.predict_with_evidence(row.to_dict(), use_llm=False)
+            y_true.append(row["era"])
+            y_pred.append(result["predicted_era"])
+        cm = confusion_matrix(y_true, y_pred, labels=_ERA_ORDER_8)
+        row_sums = cm.sum(axis=1, keepdims=True).clip(min=1)
+        return (cm / row_sums).tolist(), _ERA_ORDER_8
+    except Exception:
+        return None, None
+
+cm_text_data,  cm_text_labels  = get_text_confusion_matrix_data()
+cm_audio_data, cm_audio_labels = get_audio_confusion_matrix_data()
 
 # ── Build the JS data block ────────────────────────────────────────────────────
 def make_data_js() -> str:
@@ -129,27 +175,21 @@ def make_data_js() -> str:
         {"era": "midnights", "title": "Lavender Haze",      "artist": "Taylor Swift"},
     ]
 
-    # Confusion matrix
-    if cm_data and cm_labels:
-        confusion_js = json.dumps(cm_data)
-        labels_js    = json.dumps([ERAS_META[l]["label"] for l in cm_labels])
-        matrix_note  = "Hold-out test set · text agent · real model predictions"
-    else:
-        confusion_js = "null"
-        labels_js    = json.dumps([e["label"] for e in eras_list])
-        matrix_note  = "Run python train.py to generate confusion matrix data"
+    cm8_labels_js = json.dumps(_ERA_ORDER_8)
+    confusion_text_js  = json.dumps(cm_text_data)  if cm_text_data  else "null"
+    confusion_audio_js = json.dumps(cm_audio_data) if cm_audio_data else "null"
 
     return f"""
 const ERAS = {json.dumps(eras_list)};
 const DEMOS = {json.dumps(demos_list)};
 
-// Confusion matrix — {matrix_note}
-const _RAW_CM    = {confusion_js};
-const _CM_LABELS = {labels_js};
-const CONFUSION  = _RAW_CM;   // may be null — matrix section handles gracefully
+// Confusion matrices — hold-out test set (random_state=42), row-normalised fractions
+const CM_LABELS      = {cm8_labels_js};
+const CONFUSION_TEXT  = {confusion_text_js};
+const CONFUSION_AUDIO = {confusion_audio_js};
 
 // API base URL — eralyzer.js uses this when served inside the Streamlit iframe
-const DEBATE_API_BASE = "http://localhost:8000";
+const DEBATE_API_BASE = "{os.getenv('DEBATE_API_BASE', 'http://localhost:8002')}";
 """
 
 # ── Bundle HTML: eralyzer.html + eralyzer.css + real data JS + eralyzer.js ────
@@ -158,18 +198,6 @@ def bundle_html() -> str:
     css  = (BASE / "eralyzer.css").read_text(encoding="utf-8")
     js   = (BASE / "eralyzer.js").read_text(encoding="utf-8")
     data = make_data_js()
-
-    # Patch the matrix section to handle null CONFUSION gracefully
-    js = js.replace(
-        "buildMatrix();",
-        """if (typeof CONFUSION !== 'undefined' && CONFUSION !== null) {
-  buildMatrix();
-} else {
-  const w = document.getElementById('matrix');
-  if (w) w.innerHTML = '<div style="font-family:var(--font-mono);font-size:12px;'
-    + 'color:var(--ink-3);padding:24px;">Train the model first to see the real confusion matrix.</div>';
-}"""
-    )
 
     html = html.replace(
         '<link rel="stylesheet" href="eralyzer.css" />',

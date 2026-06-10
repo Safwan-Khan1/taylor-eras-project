@@ -2,14 +2,11 @@ import re
 import nltk
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
-try:
-    nltk.data.find('corpora/stopwords')
-except LookupError:
-    nltk.download('stopwords', quiet=True)
-try:
-    nltk.data.find('corpora/wordnet')
-except LookupError:
-    nltk.download('wordnet', quiet=True)
+for _corpus in ('corpora/stopwords', 'corpora/wordnet', 'sentiment/vader_lexicon'):
+    try:
+        nltk.data.find(_corpus)
+    except LookupError:
+        nltk.download(_corpus.split('/')[-1], quiet=True)
 
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 

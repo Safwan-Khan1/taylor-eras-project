@@ -136,9 +136,11 @@ Do not use bullet points. Write in first person as the Audio Agent.
 IMPORTANT: Always end with a complete sentence. Do not trail off or use ellipsis."""
 
         try:
+            import httpx
             client = OpenAI(
                 base_url="https://openrouter.ai/api/v1",
                 api_key=OPENROUTER_API_KEY,
+                http_client=httpx.Client(verify=False),
             )
             response = client.chat.completions.create(
                 model=OPENROUTER_MODEL,

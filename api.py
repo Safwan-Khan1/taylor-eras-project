@@ -303,11 +303,13 @@ Then open: http://localhost:8000
 api.py — eralyzer FastAPI backend (Perfected Late Fusion)
 """
 
+import os
 import sys
 import time
 from pathlib import Path
 
 import pandas as pd
+from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
@@ -316,6 +318,10 @@ from pydantic import BaseModel
 
 BASE = Path(__file__).parent
 sys.path.insert(0, str(BASE))
+
+# Load both .env files — main has OPENROUTER key, TaylorSwiftEras has Spotify/Genius keys
+load_dotenv(BASE / ".env")
+load_dotenv(BASE / "TaylorSwiftEras" / ".env", override=False)
 
 # ── Era metadata ───────────────────────────────────────────────────────────────
 ERAS_META = {
@@ -362,6 +368,33 @@ try:
     dataset["lyrics"] = dataset["lyric"]
 except Exception as e:
     print(f"[api] Dataset load failed: {e}")
+
+# ── Live API collectors (fallback for songs not in the local dataset) ─────────
+spotify_collector = None
+genius_collector = None
+
+try:
+    from src.spotify_collector import SpotifyCollector
+    sp_id     = os.getenv("SPOTIFY_API_ID")
+    sp_secret = os.getenv("SPOTIFY_API_TOKEN")
+    if sp_id and sp_secret:
+        spotify_collector = SpotifyCollector(sp_id, sp_secret)
+        print("[api] SpotifyCollector ready")
+    else:
+        print("[api] Spotify keys missing — live audio lookup disabled")
+except Exception as e:
+    print(f"[api] SpotifyCollector init failed: {e}")
+
+try:
+    from src.genius_collector import GeniusCollector
+    genius_token = os.getenv("GENIUS_API_TOKEN")
+    if genius_token:
+        genius_collector = GeniusCollector(genius_token)
+        print("[api] GeniusCollector ready")
+    else:
+        print("[api] Genius key missing — live lyrics lookup disabled")
+except Exception as e:
+    print(f"[api] GeniusCollector init failed: {e}")
 
 # ── App ───────────────────────────────────────────────────────────────────────
 app = FastAPI(title="eralyzer API")
@@ -485,28 +518,78 @@ def build_debate_script(ta: dict, au: dict, song_data: dict, runtime_val: float)
         "script": script,
     }
 
-# ── Updated run_debate route ──────────────────────────────────────────────────
-# ── Update the Route ─────────────────────────────────────────────────────────
+@app.get("/status")
+def status():
+    return {
+        "text_agent":       text_agent is not None,
+        "audio_agent":      audio_agent is not None,
+        "dataset_songs":    len(dataset) if dataset is not None else 0,
+        "spotify_live":     spotify_collector is not None,
+        "genius_live":      genius_collector is not None,
+    }
+
+
 @app.post("/debate")
 def run_debate(req: DebateRequest):
-    song_row = dataset[dataset["track_name"].str.lower().str.strip() == req.song_title.lower().strip()]
-    if song_row.empty:
-        return JSONResponse({"error": "Song not found"}, status_code=404)
-    
-    song = song_row.iloc[0].to_dict()
+    if text_agent is None or audio_agent is None:
+        return JSONResponse(
+            {"error": "Agents not loaded. Run: python train_text_agent.py && python train_audio_agent.py"},
+            status_code=503,
+        )
+
+    song: dict | None = None
+
+    # ── 1. Fast path: local dataset lookup ────────────────────────────────────
+    if dataset is not None:
+        title_lc = req.song_title.lower().strip()
+        names    = dataset["track_name"].str.lower().str.strip()
+        mask     = names == title_lc
+        if not mask.any():
+            mask = names.str.contains(title_lc, na=False, regex=False)
+        if mask.any():
+            song = dataset[mask].iloc[0].to_dict()
+
+    # ── 2. Live fallback: fetch from Genius + Spotify ────────────────────────
+    if song is None:
+        if genius_collector is None or spotify_collector is None:
+            return JSONResponse(
+                {"error": f'"{req.song_title}" not found in local dataset and live API lookup is not configured.'},
+                status_code=404,
+            )
+
+        lyrics = genius_collector.fetch_lyrics(req.song_title, req.artist)
+        if not lyrics:
+            return JSONResponse(
+                {"error": f'Lyrics for "{req.song_title}" by {req.artist} could not be fetched from Genius.'},
+                status_code=404,
+            )
+
+        audio_features = spotify_collector.get_track_features(req.song_title, req.artist)
+        if not audio_features:
+            return JSONResponse(
+                {"error": f'Audio features for "{req.song_title}" by {req.artist} could not be fetched from Spotify.'},
+                status_code=404,
+            )
+
+        song = {**audio_features, "lyrics": lyrics}
+        print(f"[api] Live fetch: '{req.song_title}' by {req.artist}")
+
+    # ── 3. Run agents ─────────────────────────────────────────────────────────
     start_time = time.perf_counter()
-    
-    # Process inputs
-    ta_res = text_agent.predict_with_evidence(str(song["lyrics"]))
+
+    ta_res     = text_agent.predict_with_evidence(str(song["lyrics"]))
     au_features = {f: song.get(f, 0) for f in audio_agent.features}
-    au_res = audio_agent.predict_with_evidence(au_features)
-    
+    au_res     = audio_agent.predict_with_evidence(au_features)
+
     elapsed = time.perf_counter() - start_time
 
-    # Choose Script based on Fusion Mode
     if req.fusion == "early":
         response_data = build_early_fusion_script(ta_res, au_res, song, elapsed)
     else:
         response_data = build_debate_script(ta_res, au_res, song, elapsed)
-        
+
     return JSONResponse(response_data)
+
+
+# ── Serve static files (must come AFTER all API routes) ──────────────────────
+app.mount("/", StaticFiles(directory=str(BASE), html=True), name="static")

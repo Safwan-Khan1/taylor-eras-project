@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: taylor-eras-api
+    runtime: python
+    buildCommand: >
+      pip install -r requirements.txt &&
+      python -c "import nltk; [nltk.download(p, quiet=True) for p in ('punkt','punkt_tab','stopwords','wordnet','vader_lexicon')]"
+    startCommand: uvicorn api:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: OPENROUTER_API_KEY
+        sync: false

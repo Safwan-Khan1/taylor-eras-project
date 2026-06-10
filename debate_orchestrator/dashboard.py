@@ -1,8 +1,13 @@
+import sys
+import io
+
 def print_dashboard(result):
 
-    print("\n" + "="*60)
-    print("🎵 TAYLOR ERAS DEBATE SYSTEM (LANGGRAPH)")
-    print("="*60)
+    out = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+
+    out.write("\n" + "="*60 + "\n")
+    out.write("TAYLOR ERAS DEBATE SYSTEM (LANGGRAPH)\n")
+    out.write("="*60 + "\n")
 
     final = result.get("final", {})
     text = result.get("text_out", {})
@@ -12,37 +17,38 @@ def print_dashboard(result):
     critique = result.get("round_2", {})
 
     # ---------------- FINAL ----------------
-    print("\n🏁 FINAL VERDICT")
-    print("-"*60)
-    print("Prediction        :", final.get("prediction"))
-    print("Agreement         :", final.get("agreement"))
-    print("Fusion Agreement  :", final.get("fusion_agreement"))
+    out.write("\nFINAL VERDICT\n")
+    out.write("-"*60 + "\n")
+    out.write(f"Prediction        : {final.get('prediction')}\n")
+    out.write(f"Agreement         : {final.get('agreement')}\n")
+    out.write(f"Fusion Agreement  : {final.get('fusion_agreement')}\n")
 
     # ---------------- TEXT ----------------
-    print("\n🤖 TEXT AGENT")
-    print("-"*60)
-    print("Prediction  :", text.get("predicted_era"))
-    print("Confidence  :", round(max(text.get("probabilities", {}).values()), 3))
-    print("Reasoning   :", text.get("reasoning", "")[:120], "...")
+    out.write("\nTEXT AGENT\n")
+    out.write("-"*60 + "\n")
+    out.write(f"Prediction  : {text.get('predicted_era')}\n")
+    out.write(f"Confidence  : {round(max(text.get('probabilities', {}).values()), 3)}\n")
+    out.write(f"Reasoning   : {text.get('reasoning', '')[:120]} ...\n")
 
     # ---------------- AUDIO ----------------
-    print("\n🎧 AUDIO AGENT")
-    print("-"*60)
-    print("Prediction  :", audio.get("predicted_era"))
-    print("Confidence  :", round(max(audio.get("probabilities", {}).values()), 3))
-    print("Reasoning   :", audio.get("reasoning", "")[:120], "...")
+    out.write("\nAUDIO AGENT\n")
+    out.write("-"*60 + "\n")
+    out.write(f"Prediction  : {audio.get('predicted_era')}\n")
+    out.write(f"Confidence  : {round(max(audio.get('probabilities', {}).values()), 3)}\n")
+    out.write(f"Reasoning   : {audio.get('reasoning', '')[:120]} ...\n")
 
     # ---------------- FUSION ----------------
-    print("\n⚖️ FUSION STAGE")
-    print("-"*60)
-    print("Early Fusion:", early.get("prediction"))
-    print("Late Fusion :", late.get("prediction"))
+    out.write("\nFUSION STAGE\n")
+    out.write("-"*60 + "\n")
+    out.write(f"Early Fusion: {early.get('prediction')}\n")
+    out.write(f"Late Fusion : {late.get('prediction')}\n")
 
     # ---------------- DEBATE ----------------
-    print("\n🧠 ROUND 2 DEBATE")
-    print("-"*60)
-    print("Conflict    :", critique.get("conflict"))
-    print("Text stance :", critique.get("text_critique", {}).get("statement"))
-    print("Audio stance:", critique.get("audio_critique", {}).get("statement"))
+    out.write("\nROUND 2 DEBATE\n")
+    out.write("-"*60 + "\n")
+    out.write(f"Conflict    : {critique.get('conflict')}\n")
+    out.write(f"Text stance : {critique.get('text_critique', {}).get('statement')}\n")
+    out.write(f"Audio stance: {critique.get('audio_critique', {}).get('statement')}\n")
 
-    print("\n" + "="*60)
+    out.write("\n" + "="*60 + "\n")
+    out.flush()
