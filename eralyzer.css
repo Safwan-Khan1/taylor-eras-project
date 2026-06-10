@@ -562,17 +562,7 @@ body {
 }
 
 /* ---------- matrix ---------- */
-.matrix-pair {
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
-}
-.matrix-pair .matrix-wrap {
-  flex: 1;
-  min-width: 0;
-  margin-top: 28px;
-}
-.matrix-wrap {
+.matrix-section {
   margin-top: 28px;
   padding: 24px 26px 28px;
   background: var(--cream);
@@ -584,7 +574,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 .matrix-title h3 {
   font-family: var(--font-serif);
@@ -598,6 +588,22 @@ body {
   font-size: 11px;
   color: var(--ink-3);
   margin: 0;
+}
+.matrix-grids {
+  display: flex;
+  gap: 28px;
+}
+.matrix-panel {
+  flex: 1;
+  min-width: 0;
+}
+.matrix-panel-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 8px;
 }
 .matrix-legend {
   display: flex;
@@ -620,7 +626,7 @@ body {
 
 .matrix {
   display: grid;
-  grid-template-columns: 110px repeat(10, 1fr);
+  grid-template-columns: 80px repeat(8, 1fr);
   gap: 2px;
   font-family: var(--font-mono);
 }
@@ -708,6 +714,6 @@ body {
   .debate-stage { grid-template-columns: 1fr; gap: 12px; }
   .debate-divider { display: none; }
   .verdict-breakdown { grid-template-columns: 1fr 1fr; }
-  .matrix { grid-template-columns: 80px repeat(10, 1fr); }
-  .matrix-pair { flex-direction: column; }
+  .matrix-grids { flex-direction: column; }
+  .matrix { grid-template-columns: 70px repeat(8, 1fr); }
 }

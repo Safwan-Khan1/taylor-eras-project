@@ -373,7 +373,7 @@
       return;
     }
 
-    wrap.style.gridTemplateColumns = "110px repeat(" + _cmLabels.length + ", 1fr)";
+    wrap.style.gridTemplateColumns = "80px repeat(" + _cmLabels.length + ", 1fr)";
 
     const corner = document.createElement("div");
     corner.className = "m-corner";

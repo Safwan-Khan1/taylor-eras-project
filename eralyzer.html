@@ -149,38 +149,31 @@
   </section>
 
   <!-- 6. Confusion matrices -->
-  <div class="matrix-pair">
-    <section class="matrix-wrap">
-      <header class="matrix-head">
-        <div class="matrix-title">
-          <h3>Audio confusion matrix</h3>
-          <p>Hold-out set · audio agent solo · darker cells = more confusion</p>
-        </div>
-        <div class="matrix-legend">
-          <span class="ml-label">0%</span>
-          <div class="ml-grad" aria-hidden="true"></div>
-          <span class="ml-label">100%</span>
-        </div>
-      </header>
-      <div class="matrix" id="matrix-audio"></div>
-      <div class="matrix-tooltip" id="matrix-audio-tooltip" hidden></div>
-    </section>
-    <section class="matrix-wrap">
-      <header class="matrix-head">
-        <div class="matrix-title">
-          <h3>Lyrics confusion matrix</h3>
-          <p>Hold-out set · text agent solo · darker cells = more confusion</p>
-        </div>
-        <div class="matrix-legend">
-          <span class="ml-label">0%</span>
-          <div class="ml-grad" aria-hidden="true"></div>
-          <span class="ml-label">100%</span>
-        </div>
-      </header>
-      <div class="matrix" id="matrix-text"></div>
-      <div class="matrix-tooltip" id="matrix-text-tooltip" hidden></div>
-    </section>
-  </div>
+  <section class="matrix-section">
+    <header class="matrix-head">
+      <div class="matrix-title">
+        <h3>Confusion Matrix</h3>
+        <p>Hold-out test set · 80/20 split · row-normalised · darker cells = more confusion</p>
+      </div>
+      <div class="matrix-legend">
+        <span class="ml-label">0%</span>
+        <div class="ml-grad" aria-hidden="true"></div>
+        <span class="ml-label">100%</span>
+      </div>
+    </header>
+    <div class="matrix-grids">
+      <div class="matrix-panel">
+        <div class="matrix-panel-label">Audio Agent</div>
+        <div class="matrix" id="matrix-audio"></div>
+      </div>
+      <div class="matrix-panel">
+        <div class="matrix-panel-label">Lyrics Agent</div>
+        <div class="matrix" id="matrix-text"></div>
+      </div>
+    </div>
+    <div class="matrix-tooltip" id="matrix-audio-tooltip" hidden></div>
+    <div class="matrix-tooltip" id="matrix-text-tooltip" hidden></div>
+  </section>
 
   <footer class="bottombar">
     <span>eralyzer · multi-agent era classifier</span>
