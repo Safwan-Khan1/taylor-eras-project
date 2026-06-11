@@ -345,29 +345,62 @@ ALBUM_ERA = {
 }
 
 # ── Load resources ────────────────────────────────────────────────────────────
+# text_agent = None
+# audio_agent = None
+# early_fusion_agent = None
+
+# try:
+#     from src.text_agent import TextAgent
+#     from src.audio_agent import AudioAgent
+    
+#     t_path = BASE / "models" / "text_agent.pkl"
+#     a_path = BASE / "models" / "audio_agent.pkl"
+#     if t_path.exists(): text_agent = TextAgent.load(str(t_path))
+#     if a_path.exists(): audio_agent = AudioAgent.load(str(a_path))
+#     print(f"[api] Agents Active: Text({text_agent is not None}) Audio({audio_agent is not None})")
+# except Exception as e:
+#     print(f"[api] Agent load failed: {e}")
+
+# dataset: pd.DataFrame | None = None
+# try:
+#     primary_path = BASE / "TaylorSwiftEras" / "Data" / "Final" / "taylor_merged_df.csv"
+#     dataset = pd.read_csv(primary_path)
+#     dataset["era"] = dataset["album_name"].map(ALBUM_ERA).fillna("Unknown")
+#     dataset["lyrics"] = dataset["lyric"]
+# except Exception as e:
+#     print(f"[api] Dataset load failed: {e}")
+
 text_agent = None
 audio_agent = None
+early_fusion_agent = None
 
 try:
     from src.text_agent import TextAgent
     from src.audio_agent import AudioAgent
-    
+    from src.early_fusion_agent import EarlyFusionAgent
+
     t_path = BASE / "models" / "text_agent.pkl"
     a_path = BASE / "models" / "audio_agent.pkl"
-    if t_path.exists(): text_agent = TextAgent.load(str(t_path))
-    if a_path.exists(): audio_agent = AudioAgent.load(str(a_path))
-    print(f"[api] Agents Active: Text({text_agent is not None}) Audio({audio_agent is not None})")
+    e_path = BASE / "models" / "early_fusion_agent.pkl"
+
+    if t_path.exists():
+        text_agent = TextAgent.load(str(t_path))
+
+    if a_path.exists():
+        audio_agent = AudioAgent.load(str(a_path))
+
+    if e_path.exists():
+        early_fusion_agent = EarlyFusionAgent.load(str(e_path))
+
+    print(
+        f"[api] Agents Active: "
+        f"Text({text_agent is not None}) "
+        f"Audio({audio_agent is not None}) "
+        f"EarlyFusion({early_fusion_agent is not None})"
+    )
+
 except Exception as e:
     print(f"[api] Agent load failed: {e}")
-
-dataset: pd.DataFrame | None = None
-try:
-    primary_path = BASE / "TaylorSwiftEras" / "Data" / "Final" / "taylor_merged_df.csv"
-    dataset = pd.read_csv(primary_path)
-    dataset["era"] = dataset["album_name"].map(ALBUM_ERA).fillna("Unknown")
-    dataset["lyrics"] = dataset["lyric"]
-except Exception as e:
-    print(f"[api] Dataset load failed: {e}")
 
 # ── Live API collectors (fallback for songs not in the local dataset) ─────────
 spotify_collector = None
@@ -406,43 +439,97 @@ class DebateRequest(BaseModel):
     artist: str = "Taylor Swift"
     fusion: str = "late" # Default to late
 
-def build_early_fusion_script(ta: dict, au: dict, song_data: dict, runtime_val: float) -> dict:
-    """Narrative for Early Fusion: A unified feature vector analysis."""
-    p_ta = ta["predicted_era"]
-    l_conf = float(ta["probabilities"].get(p_ta, 0))
-    a_conf = float(au["probabilities"].get(p_ta, 0)) # Note: Using p_ta to check agreement
+# def build_early_fusion_script(ta: dict, au: dict, song_data: dict, runtime_val: float) -> dict:
+#     """Narrative for Early Fusion: A unified feature vector analysis."""
+#     p_ta = ta["predicted_era"]
+#     l_conf = float(ta["probabilities"].get(p_ta, 0))
+#     a_conf = float(au["probabilities"].get(p_ta, 0)) # Note: Using p_ta to check agreement
     
-    # Simulate a unified confidence score for the UI
-    combined_conf = min(max(l_conf, a_conf) * 1.05, 0.99)
+#     # Simulate a unified confidence score for the UI
+#     combined_conf = min(max(l_conf, a_conf) * 1.05, 0.99)
     
-    # Notice how "who" is only 'lyric' (our repurposed Fusion box) or 'sys'
+#     # Notice how "who" is only 'lyric' (our repurposed Fusion box) or 'sys'
+#     script = [
+#         {"who": "sys", "text": "── EARLY FUSION MODE: UNIFIED ANALYSIS ──"},
+#         {"who": "lyric", "text": "> Loading TF-IDF linguistic matrices..."},
+#         {"who": "lyric", "text": "> Loading Spotify acoustic feature vectors..."},
+#         {"who": "sys", "text": "> CONCATENATING TO [1 x 8192] FEATURE VECTOR..."},
+#         {"who": "lyric", "text": "> Analyzing joint distribution space...", "cls": "is-emphatic"},
+#         {"who": "lyric", "text": f"> Unified signal aligns with {p_ta} signature.", "cls": "is-resolve"},
+#         {"who": "sys", "text": "── INFERENCE REASONING ──"},
+#         {"who": "lyric", "text": f"> The concatenated model predicts {p_ta} because linguistic themes and audio energy are evaluated simultaneously, creating a single highly confident inference.", "cls": "is-emphatic"},
+#         {"who": "lyric", "text": "> Single-pass inference complete.", "cls": "is-resolve"}
+#     ]
+
+#     meta = ERAS_META.get(p_ta, {"id": "midnights", "label": p_ta, "color": "#4a5aa8"})
+
+#     return {
+#         "id": "live",
+#         "title": song_data["track_name"],
+#         "era": meta["id"],
+#         "audioConf": combined_conf, # Feed combined to both so the UI bars match
+#         "lyricConf": combined_conf,
+#         "stacking": round(combined_conf, 2),
+#         "badge": "joint-inference",
+#         "reason": f"Early fusion model analyzed {song_data['track_name']} by merging lyric tokens and audio features into a single high-dimensional vector prior to classification.",
+#         "rounds": 1,
+#         "runtime": runtime_val,
+#         "audioFinal": "Joint",
+#         "lyricFinal": "Joint",
+#         "script": script,
+#     }
+
+def build_early_fusion_script(ef: dict, song_data: dict, runtime_val: float) -> dict:
+    predicted = ef["predicted_era"]
+    confidence = float(ef["probabilities"].get(predicted, 0))
+
+    top3 = ef["evidence"].get("top3_candidates", [])
+
+    top3_text = ", ".join(
+        f"{era} ({prob:.0%})"
+        for era, prob in top3
+    )
+
     script = [
-        {"who": "sys", "text": "── EARLY FUSION MODE: UNIFIED ANALYSIS ──"},
-        {"who": "lyric", "text": "> Loading TF-IDF linguistic matrices..."},
-        {"who": "lyric", "text": "> Loading Spotify acoustic feature vectors..."},
-        {"who": "sys", "text": "> CONCATENATING TO [1 x 8192] FEATURE VECTOR..."},
-        {"who": "lyric", "text": "> Analyzing joint distribution space...", "cls": "is-emphatic"},
-        {"who": "lyric", "text": f"> Unified signal aligns with {p_ta} signature.", "cls": "is-resolve"},
+        {"who": "sys", "text": "── EARLY FUSION MODE: REAL JOINT MODEL ──"},
+        {"who": "lyric", "text": "> Extracting TF-IDF lyric features..."},
+        {"who": "lyric", "text": "> Scaling Spotify audio features..."},
+        {"who": "sys", "text": "> CONCATENATING TEXT + AUDIO FEATURES INTO ONE VECTOR..."},
+        {"who": "lyric", "text": "> Running trained early-fusion stacking classifier...", "cls": "is-emphatic"},
+        {"who": "lyric", "text": f"> Top candidates: {top3_text}"},
+        {
+            "who": "lyric",
+            "text": f"> Early fusion prediction: <emp>{predicted} — {confidence:.0%}</emp>",
+            "cls": "is-resolve",
+        },
         {"who": "sys", "text": "── INFERENCE REASONING ──"},
-        {"who": "lyric", "text": f"> The concatenated model predicts {p_ta} because linguistic themes and audio energy are evaluated simultaneously, creating a single highly confident inference.", "cls": "is-emphatic"},
-        {"who": "lyric", "text": "> Single-pass inference complete.", "cls": "is-resolve"}
+        {"who": "lyric", "text": f"> {ef['reasoning']}", "cls": "is-emphatic"},
+        {"who": "lyric", "text": "> Single joint-model inference complete.", "cls": "is-resolve"},
     ]
 
-    meta = ERAS_META.get(p_ta, {"id": "midnights", "label": p_ta, "color": "#4a5aa8"})
+    meta = ERAS_META.get(
+        predicted,
+        {
+            "id": "midnights",
+            "label": predicted,
+            "color": "#4a5aa8",
+        },
+    )
 
     return {
         "id": "live",
-        "title": song_data["track_name"],
+        "title": song_data.get("track_name", "Unknown Song"),
+        "artist": song_data.get("artist", "Taylor Swift"),
         "era": meta["id"],
-        "audioConf": combined_conf, # Feed combined to both so the UI bars match
-        "lyricConf": combined_conf,
-        "stacking": round(combined_conf, 2),
+        "audioConf": round(confidence, 2),
+        "lyricConf": round(confidence, 2),
+        "stacking": round(confidence, 2),
         "badge": "joint-inference",
-        "reason": f"Early fusion model analyzed {song_data['track_name']} by merging lyric tokens and audio features into a single high-dimensional vector prior to classification.",
+        "reason": ef["reasoning"],
         "rounds": 1,
         "runtime": runtime_val,
-        "audioFinal": "Joint",
-        "lyricFinal": "Joint",
+        "audioFinal": "Included in joint vector",
+        "lyricFinal": f"{predicted} — {confidence:.0%}",
         "script": script,
     }
 
@@ -531,21 +618,18 @@ def status():
 
 @app.post("/debate")
 def run_debate(req: DebateRequest):
-    if text_agent is None or audio_agent is None:
-        return JSONResponse(
-            {"error": "Agents not loaded. Run: python train_text_agent.py && python train_audio_agent.py"},
-            status_code=503,
-        )
-
     song: dict | None = None
 
     # ── 1. Fast path: local dataset lookup ────────────────────────────────────
     if dataset is not None:
         title_lc = req.song_title.lower().strip()
-        names    = dataset["track_name"].str.lower().str.strip()
-        mask     = names == title_lc
+        names = dataset["track_name"].str.lower().str.strip()
+
+        mask = names == title_lc
+
         if not mask.any():
             mask = names.str.contains(title_lc, na=False, regex=False)
+
         if mask.any():
             song = dataset[mask].iloc[0].to_dict()
 
@@ -553,40 +637,127 @@ def run_debate(req: DebateRequest):
     if song is None:
         if genius_collector is None or spotify_collector is None:
             return JSONResponse(
-                {"error": f'"{req.song_title}" not found in local dataset and live API lookup is not configured.'},
+                {
+                    "error": (
+                        f'"{req.song_title}" not found in local dataset '
+                        "and live API lookup is not configured."
+                    )
+                },
                 status_code=404,
             )
 
         lyrics = genius_collector.fetch_lyrics(req.song_title, req.artist)
+
         if not lyrics:
             return JSONResponse(
-                {"error": f'Lyrics for "{req.song_title}" by {req.artist} could not be fetched from Genius.'},
+                {
+                    "error": (
+                        f'Lyrics for "{req.song_title}" by {req.artist} '
+                        "could not be fetched from Genius."
+                    )
+                },
                 status_code=404,
             )
 
-        audio_features = spotify_collector.get_track_features(req.song_title, req.artist)
+        audio_features = spotify_collector.get_track_features(
+            req.song_title,
+            req.artist
+        )
+
         if not audio_features:
             return JSONResponse(
-                {"error": f'Audio features for "{req.song_title}" by {req.artist} could not be fetched from Spotify.'},
+                {
+                    "error": (
+                        f'Audio features for "{req.song_title}" by {req.artist} '
+                        "could not be fetched from Spotify."
+                    )
+                },
                 status_code=404,
             )
 
-        song = {**audio_features, "lyrics": lyrics}
+        song = {
+            **audio_features,
+            "track_name": req.song_title,
+            "artist": req.artist,
+            "lyrics": lyrics,
+        }
+
         print(f"[api] Live fetch: '{req.song_title}' by {req.artist}")
 
-    # ── 3. Run agents ─────────────────────────────────────────────────────────
+    # ── 3. Make sure lyrics exist ─────────────────────────────────────────────
+    if "lyrics" not in song or pd.isna(song.get("lyrics")):
+        song["lyrics"] = song.get("lyric", "")
+
+    if not str(song.get("lyrics", "")).strip():
+        return JSONResponse(
+            {"error": f'No lyrics found for "{req.song_title}".'},
+            status_code=404,
+        )
+
+    # ── 4. Run selected fusion mode ───────────────────────────────────────────
     start_time = time.perf_counter()
 
-    ta_res     = text_agent.predict_with_evidence(str(song["lyrics"]))
-    au_features = {f: song.get(f, 0) for f in audio_agent.features}
-    au_res     = audio_agent.predict_with_evidence(au_features)
+    if req.fusion == "early":
+        if early_fusion_agent is None:
+            return JSONResponse(
+                {
+                    "error": (
+                        "EarlyFusionAgent not loaded. "
+                        "Run: python train_early_fusion_agent.py"
+                    )
+                },
+                status_code=503,
+            )
+
+        ef_features = {
+            f: song.get(f, 0)
+            for f in early_fusion_agent.audio_features
+        }
+
+        ef_res = early_fusion_agent.predict_with_evidence(
+            lyrics=str(song["lyrics"]),
+            audio_data=ef_features,
+        )
+
+        elapsed = time.perf_counter() - start_time
+
+        response_data = build_early_fusion_script(
+            ef_res,
+            song,
+            elapsed,
+        )
+
+        return JSONResponse(response_data)
+
+    # ── 5. Late fusion: run Text Agent + Audio Agent separately ───────────────
+    if text_agent is None or audio_agent is None:
+        return JSONResponse(
+            {
+                "error": (
+                    "TextAgent or AudioAgent not loaded. "
+                    "Run: python train_text_agent.py && python train_audio_agent.py"
+                )
+            },
+            status_code=503,
+        )
+
+    ta_res = text_agent.predict_with_evidence(str(song["lyrics"]))
+
+    au_features = {
+        f: song.get(f, 0)
+        for f in audio_agent.features
+    }
+
+    au_res = audio_agent.predict_with_evidence(au_features)
 
     elapsed = time.perf_counter() - start_time
 
-    if req.fusion == "early":
-        response_data = build_early_fusion_script(ta_res, au_res, song, elapsed)
-    else:
-        response_data = build_debate_script(ta_res, au_res, song, elapsed)
+    response_data = build_debate_script(
+        ta_res,
+        au_res,
+        song,
+        elapsed,
+    )
 
     return JSONResponse(response_data)
 
